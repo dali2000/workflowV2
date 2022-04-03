@@ -63,7 +63,7 @@ export class EnterpriseController {
             this.EnterpriseService.destroy(id);
             if (this.EnterpriseService.destroy(id)) {
                 res.status(200);
-                res.json({
+                res.json({  
                     status: '200',
                     message: 'User Deleted'
                 });
