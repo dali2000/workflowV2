@@ -7,7 +7,25 @@
         <h3>Add Employee</h3>
         <div class="row">
             <div class="col-md-12">
-                <input type="email" placeholder="Email" name="email" [(ngModel)]="form.email" [class.test]="test">
+                <input type="text" placeholder="FirstName" name="Firstname" [(ngModel)]="employer.FirstName" [class.test2]="test2">
+            </div>
+        </div>
+        <div class="error">
+            {{message2}}
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <input type="text" placeholder="LastName" name="LastName" [(ngModel)]="employer.LastName" [class.test3]="test3">
+            </div>
+        </div>
+        <div class="error">
+            {{message3}}
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <input type="email" placeholder="Email" name="email" [(ngModel)]="employer.email" [class.test]="test">
             </div>
         </div>
         <div class="error">
@@ -16,14 +34,23 @@
 
         <div class="row">
             <div class="col-md-12">
-                <input type="password" placeholder="Password" name="password" [(ngModel)]="form.password"
+                <input type="password" placeholder="Password" name="password" [(ngModel)]="employer.password"
                     [class.test1]="test1">
             </div>
         </div>
         <div class="error">
             {{message1}}
         </div>
-
+        <div class="row">
+            <div class="col-md-12">
+                <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="employer.role">
+                    <option selected>Choose...</option>
+                    <option value="Chef de group">Chef de group</option>
+                    <option value="employer">employer</option>
+                    <option value="Three">Three</option>
+                </select>
+            </div>
+        </div>
 
         <br>
 
