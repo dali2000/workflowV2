@@ -22,18 +22,25 @@ import { ListEmployeeComponent } from './employee/list-employee/list-employee.co
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ProfilComponent } from './user/profil/profil.component';
+import { ListEntrepriseComponent } from './entreprise/list-entreprise/list-entreprise.component';
+import { ProfilEntrepriseComponent } from './entreprise/profil-entreprise/profil-entreprise.component';
 
 const routes: Routes = [
   { path:'', component: PwelcomeComponent },
   { path: 'SignUp', component: SignUpComponent },
   {path:"Login", component: LoginComponent},
-  { path: 'ajouter_admin', component: AjouterAdminComponent },
   {path:'Home', component: HomeComponent},
-  { path: 'liste_admin', component: ListAdminComponent },
-  { path: 'add_employee', component: AddEmployeeComponent },
-  { path: 'add_entreprise', component: AddEntrepriseComponent },
-  { path: 'list_employee', component: ListEmployeeComponent },
 
+  { path: 'ajouter_admin', component: AjouterAdminComponent },
+  { path: 'liste_admin', component: ListAdminComponent },
+ 
+  { path: 'add_entreprise', component: AddEntrepriseComponent },
+  { path: 'list-entreprise', component: ListEntrepriseComponent },
+  { path: 'profil-entreprise', component: ProfilEntrepriseComponent },
+
+  { path: 'add_employee', component: AddEmployeeComponent },
+  { path: 'list_employee', component: ListEmployeeComponent },
+  
   { path: 'UserProfil/:id', component: ProfilComponent },
 
 
@@ -54,6 +61,8 @@ const routes: Routes = [
     AddEntrepriseComponent,
     ListEmployeeComponent,
     ProfilComponent,
+    ListEntrepriseComponent,
+    ProfilEntrepriseComponent,
     
   ],
   imports: [
