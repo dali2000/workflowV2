@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 export interface userDTO{
     firstName: string;
     lastName: string;
@@ -5,5 +6,6 @@ export interface userDTO{
     role: string;
     password: string;
     location: string;
+    phoneNumber: string;
     isActive: boolean;
 }
