@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { BadRequestException, Body, Controller, Delete, Get, Param, Post, Put, Res } from '@nestjs/common';
 import { userDTO } from './user.dto';
 import { UserService } from './user.service';
@@ -67,7 +68,7 @@ export class UserController {
             if(this.UserService.destroy(id)){
                 res.status(200);
                 res.json({
-                    status: '200',
+                    status: '200',  
                     message: 'User Deleted'
                 });
             }else{

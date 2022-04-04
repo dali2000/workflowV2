@@ -27,6 +27,9 @@ export class User {
   @Column()
   location: string;
 
+  @Column()
+  phoneNumber: string;
+
   @Column({ default: true })
   isActive: boolean;
 }

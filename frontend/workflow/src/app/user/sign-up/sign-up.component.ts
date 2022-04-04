@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -7,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignUpComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient, private router: Router) { }
+
   form={
-    email:'',
+    firstName:'',
+    lastName:'',
+    Email:'',
     password:'',
+    location:'',
+    role:'', 
     
   }
   confrimPassword =''
@@ -18,7 +25,8 @@ export class SignUpComponent implements OnInit {
   message1 = ""
   test =false
   test1 =false
- 
+  check = true
+  response:any
   ngOnInit(): void {
     this.test = false
     this.test1 = false
@@ -26,7 +34,7 @@ export class SignUpComponent implements OnInit {
     this.message = ""
   }
 
-  login(){
+  SignUp(){
     if(this.form.password==""){
       this.message1 = "password is required"
       this.test1 = true
@@ -53,6 +61,26 @@ export class SignUpComponent implements OnInit {
       this.test =false
       this.message = ""
       console.log(this.message)
+    }
+
+    if(this.test == false && this.test1 == false){
+      console.log(this.form)
+      this.http.post('http://localhost:3000/user/addUser', this.form).subscribe(res => {
+        console.log(res)
+        this.response = res
+        console.log(this.response.status)
+        if (this.response.status == 200) {
+          this.check = false
+          
+
+        }
+        if (this.response.status != 200) {
+          this.check = true
+          
+
+        }
+
+      });
     }
   }
 
