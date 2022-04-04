@@ -17,20 +17,20 @@
                 <div class="col">
                     <input type="text" class="form-control" placeholder="First name" [(ngModel)]="user.firstName" name="firstName">
                 </div>
-                <div class="col">
+                <div class="col" >
                     <input type="text" class="form-control" placeholder="Last name" [(ngModel)]="user.lastName" name="lastName">
-                </div>
-                <div class="col">Département:</div>
-                <div class="col">Group:</div>
-                <div class="col">Role:</div>
+                </div >
+                <div class="col" *ngIf="test">Département:</div>
+                <div class="col" *ngIf="test">Group:</div>
+                <div class="col">Role:{{user.role}}</div>
         
               </div>
         </div>
         <div class="col-3 box">
             <div class="row row-cols-1 ">
-                <div class="col">Location:</div>
+                <div class="col"><input type="text" class="form-control" placeholder="Location" [(ngModel)]="user.location" name="location"></div>
                 <div class="col"></div>
-                <div class="col">Phone number:</div>
+                <div class="col"><input type="text" class="form-control" placeholder="Phone number" [(ngModel)]="user.phoneNumber" name="phoneNumber"></div>
                 <div class="col"></div>
                
         

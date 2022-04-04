@@ -12,6 +12,7 @@ export class UserProfilComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router,private route: ActivatedRoute) { }
   user:any
   id:any
+  test=false
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       const id = params.get("id");
@@ -25,6 +26,10 @@ export class UserProfilComponent implements OnInit {
     this.http.get('http://localhost:3000/user/getUser/'+this.id).subscribe(res => {
       this.user = res
       console.log(res);
+    if(this.user.role=="employee"){
+      this.test=true
+    }
+
     });
   }
 }
