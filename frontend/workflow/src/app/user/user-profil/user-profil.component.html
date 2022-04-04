@@ -2,43 +2,88 @@
 
 <div class="container content">
     <div class="list">
-    <div class="cover">
-        <img src="../assets/img/photo_c.jpg"  class="img-couvertur" alt="">
-    </div>
-    <div class="d-flex justify-content-start">
-         <img src="../assets/img/photo_profil.jpg" class="img-profil"></div>
-   
-        
-    <br><br>
-    <div class="row">
-        <div class="col-8 box">
-
-            <div class="row row-cols-1 ">
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="First name" [(ngModel)]="user.firstName" name="firstName">
-                </div>
-                <div class="col" >
-                    <input type="text" class="form-control" placeholder="Last name" [(ngModel)]="user.lastName" name="lastName">
-                </div >
-                <div class="col" *ngIf="test">Département:</div>
-                <div class="col" *ngIf="test">Group:</div>
-                <div class="col">Role:{{user.role}}</div>
-        
-              </div>
+        <div class="cover">
+            <img src="../assets/img/photo_c.jpg" class="img-couvertur" alt="">
         </div>
-        <div class="col-3 box">
-            <div class="row row-cols-1 ">
-                <div class="col"><input type="text" class="form-control" placeholder="Location" [(ngModel)]="user.location" name="location"></div>
-                <div class="col"></div>
-                <div class="col"><input type="text" class="form-control" placeholder="Phone number" [(ngModel)]="user.phoneNumber" name="phoneNumber"></div>
-                <div class="col"></div>
-               
-        
+        <div class="d-flex justify-content-start">
+            <img src="../assets/img/photo_profil.jpg" class="img-profil">
+        </div>
+
+
+        <br><br>
+        <div class="row">
+            <div class="col-md-7">
+
+            </div>
+            <div class="col-md-3">
+
+            </div>
+            <div class="col">
+                <button type="button"class="btn btn-primary" (click)="update()" [disabled]="!h"> Update</button>
             </div>
         </div>
+        <div class="row">
+            <div class="col box">
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="First name" [(ngModel)]="user.firstName"
+                            name="firstName" [disabled]="!edit">
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-edit" (click)="Edit()"><i
+                                class='bx bx-edit-alt'></i></button>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Last name" [(ngModel)]="user.lastName"
+                            name="lastName" [disabled]="!edit1">
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-edit" (click)="Edit1()"><i
+                                class='bx bx-edit-alt'></i></button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col" *ngIf="test">Département:</div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col" *ngIf="test">Group:</div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col">Role:{{user.role}}</div>
+                </div>
 
-       
+            </div>
+            <div class="col-3 box">
+                
+                    <div class="row">
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" placeholder="Location" [(ngModel)]="user.location"
+                                name="location" [disabled]="!edit2">
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-edit" (click)="Edit2()"><i
+                                    class='bx bx-edit-alt'></i></button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" placeholder="Phone number"
+                                [(ngModel)]="user.phoneNumber" name="phoneNumber" [disabled]="!edit3">
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-edit" (click)="Edit3()"><i
+                                    class='bx bx-edit-alt'></i></button>
+                        </div>
+                    </div>
+              
+
+
+            </div>
+
+        </div>
     </div>
-   
-</div>
-</div>
