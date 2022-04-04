@@ -25,11 +25,11 @@
         <div class="row">
             <div class="col box">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col">
                         <input type="text" class="form-control" placeholder="First name" [(ngModel)]="user.firstName"
                             name="firstName" [disabled]="!edit">
                     </div>
-                    <div class="col-md-3">
+                    <div class="col">
                         <button type="button" class="btn btn-edit" (click)="Edit()"><i
                                 class='bx bx-edit-alt'></i></button>
                     </div>
@@ -65,11 +65,12 @@
                             <input type="text" class="form-control" placeholder="Location" [(ngModel)]="user.location"
                                 name="location" [disabled]="!edit2">
                         </div>
-                        <div class="col">
+                        <div class="col-md-4">
                             <button type="button" class="btn btn-edit" (click)="Edit2()"><i
                                     class='bx bx-edit-alt'></i></button>
                         </div>
                     </div>
+                    <br>
                     <div class="row">
                         <div class="col-md-8">
                             <input type="text" class="form-control" placeholder="Phone number"
