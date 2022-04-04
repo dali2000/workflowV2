@@ -14,20 +14,24 @@
         <div class="col-8 box">
 
             <div class="row row-cols-1 ">
-                <div class="col">Name: {{user.firstName}} {{user.lastName}}</div>
-                <div class="col">Email: {{user.Email}}</div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="First name" [(ngModel)]="user.firstName" name="firstName">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Last name" [(ngModel)]="user.lastName" name="lastName">
+                </div>
                 <div class="col">Département:</div>
                 <div class="col">Group:</div>
-                <div class="col">Role: {{user.role}}</div>
+                <div class="col">Role:</div>
         
               </div>
         </div>
         <div class="col-3 box">
             <div class="row row-cols-1 ">
                 <div class="col">Location:</div>
-                <div class="col">aa</div>
+                <div class="col"></div>
                 <div class="col">Phone number:</div>
-                <div class="col">+21653804490</div>
+                <div class="col"></div>
                
         
             </div>

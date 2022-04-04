@@ -3,15 +3,15 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-profil-entreprise',
-  templateUrl: './profil-entreprise.component.html',
-  styleUrls: ['./profil-entreprise.component.css']
+  selector: 'app-user-profil',
+  templateUrl: './user-profil.component.html',
+  styleUrls: ['./user-profil.component.css']
 })
-export class ProfilEntrepriseComponent implements OnInit {
+export class UserProfilComponent implements OnInit {
 
   constructor(private http: HttpClient, private router: Router,private route: ActivatedRoute) { }
-  id :any 
-  entreprise:any
+  user:any
+  id:any
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       const id = params.get("id");
@@ -20,9 +20,10 @@ export class ProfilEntrepriseComponent implements OnInit {
     });
     this.getProfile()
   }
+
   getProfile(){
-    this.http.get('http://localhost:3000/Enterprise/getEnterprise/'+this.id).subscribe(res => {
-      this.entreprise = res
+    this.http.get('http://localhost:3000/user/getUser/'+this.id).subscribe(res => {
+      this.user = res
       console.log(res);
     });
   }
