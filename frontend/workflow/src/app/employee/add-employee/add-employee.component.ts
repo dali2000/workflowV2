@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-employee',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddEmployeeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
     this.message = ""
@@ -19,11 +21,12 @@ export class AddEmployeeComponent implements OnInit {
     this.check = true
   }
   employer={
-    FirstName:'',
-    LastName:'',
-    email:'',
+    firstName:'',
+    lastName:'',
+    Email:'',
     password:'',
-    role:'[chef de group , employer]',
+    location:'',
+    role:'employee',  
     }
 
   
@@ -37,9 +40,10 @@ export class AddEmployeeComponent implements OnInit {
   test2 =false
   test3 =false
   check = true
+  response:any
   AddEmployee(){
 
-    if(this.employer.FirstName==""){
+    if(this.employer.firstName==""){
       this.message2 = "FirstName is required"
       this.test2 =true
       console.log(this.message2)
@@ -49,7 +53,7 @@ export class AddEmployeeComponent implements OnInit {
         this.test2 = false
     } 
 
-    if(this.employer.LastName==""){
+    if(this.employer.lastName==""){
       this.message3 = "LastName is required"
       this.test3 =true
       console.log(this.message3)
@@ -59,7 +63,7 @@ export class AddEmployeeComponent implements OnInit {
         this.test3 = false
     } 
 
-    if(this.employer.email==""){
+    if(this.employer.Email==""){
       this.message = "Email is required"
       this.test =true
       console.log(this.message)
@@ -87,6 +91,23 @@ export class AddEmployeeComponent implements OnInit {
         }
 
         if(this.test1 == false && this.test==false && this.test2 == false && this.test3 == false){
-      console.log(this.employer)}
+      console.log(this.employer)
+      this.http.post('http://localhost:3000/user/addUser', this.employer).subscribe(res => {
+        console.log(res)
+        this.response = res
+        console.log(this.response.status)
+        if (this.response.status == 200) {
+          this.check = false
+          
+
+        }
+        if (this.response.status != 200) {
+          this.check = true
+          
+
+        }
+
+      });
+    }
     }
 }

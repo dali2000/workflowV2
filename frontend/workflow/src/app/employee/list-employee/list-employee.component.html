@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="container">
 
   <div class="list">
@@ -19,22 +20,22 @@
 
 
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-3" *ngFor="let em of employee;">
 
         <div class="card">
           <div class="card-img">
             <img src="../assets/img/photo_profil.jpg" class="card-img-top">
           </div>
           <div class="card-body">
-            <h5 class="card-title">Foulen ben foulen</h5>
-            <h6 class="card-title">Role:</h6>
+            <h5 class="card-title">Name: {{em.firstName}}</h5>
+            <h6 class="card-title">Role: {{em.role}}</h6>
             <div class="card-body-buttom">
               <div class="row">
                 <div class="col">
-                  <button class="btn btn-outline-primary" id="btn1">Consult</button>
+                  <button class="btn btn-outline-primary" id="btn1" routerLink="/UserProfil/{{em.id}}">Consult</button>
                 </div>
                 <div class="col">
-                  <button class="btn btn-primary"> execlude</button>
+                  <button class="btn btn-primary" (click)="deleteEmployee(em.id)"> execlude</button>
                 </div>
               </div>
 
@@ -44,82 +45,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3">
 
-        <div class="card">
-          <div class="card-img">
-            <img src="../assets/img/photo_profil.jpg" class="card-img-top">
-          </div>
-
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-title">Role:</h6>
-            <div class="card-body-buttom">
-              <div class="row">
-                <div class="col">
-                  <button class="btn btn-outline-primary">Consult</button>
-                </div>
-                <div class="col">
-                  <button class="btn btn-primary"> execlude</button>
-                </div>
-              </div>
-
-
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-
-        <div class="card">
-          <div class="card-img">
-            <img src="../assets/img/photo_profil.jpg" class="card-img-top">
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-title">Role:</h6>
-            <div class="card-body-buttom">
-              <div class="row">
-                <div class="col">
-                  <button class="btn btn-outline-primary">Consult</button>
-                </div>
-                <div class="col">
-                  <button class="btn btn-primary"> execlude</button>
-                </div>
-              </div>
-
-
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-
-        <div class="card">
-          <div class="card-img">
-            <img src="../assets/img/photo_profil.jpg" class="card-img-top">
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-title">Role:</h6>
-            <div class="card-body-buttom">
-              <div class="row">
-                <div class="col">
-                  <button class="btn btn-outline-primary">Consult</button>
-                </div>
-                <div class="col">
-                  <button class="btn btn-primary"> execlude</button>
-                </div>
-              </div>
-
-
-
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
   </div>

@@ -36,7 +36,7 @@ const routes: Routes = [
  
   { path: 'add_entreprise', component: AddEntrepriseComponent },
   { path: 'list-entreprise', component: ListEntrepriseComponent },
-  { path: 'profil-entreprise', component: ProfilEntrepriseComponent },
+  { path: 'profil-entreprise/:id', component: ProfilEntrepriseComponent },
 
   { path: 'add_employee', component: AddEmployeeComponent },
   { path: 'list_employee', component: ListEmployeeComponent },
