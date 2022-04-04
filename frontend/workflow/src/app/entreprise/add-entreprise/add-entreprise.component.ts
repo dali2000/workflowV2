@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-entreprise',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddEntrepriseComponent implements OnInit {
 
- 
+  constructor(private http: HttpClient, private router: Router) { }
   ngOnInit(): void {
     this.message = ""
     this.message1 = ""
@@ -16,9 +18,11 @@ export class AddEntrepriseComponent implements OnInit {
     this.check = true
   }
   form={
-    email:'',
+    Email:'',
     password:'',
-    role:'employee'
+    Name:'',
+    location:'',
+    
     }
 
   
@@ -26,36 +30,28 @@ export class AddEntrepriseComponent implements OnInit {
   message1 = ""
   test =false
   test1 =false
+  test2=false
   check = true
-  AddEmployee(){
+  response:any
+  AddEntreprise(){
 
-    if(this.form.email==""){
-      this.message = "Email is required"
-      this.test =true
-      console.log(this.message)
-    }
-    else  {
-      this.message = ""
-        this.test = false
-    } 
-  
-      if(this.form.password==""){
-        this.message1 = "password is required"
-        this.test1 = true
-        console.log(this.message)
-      }
-      else{
-        this.message1 = ""
-        this.test1 = false
+    this.http.post('http://localhost:3000/Enterprise/addEnterprise', this.form).subscribe(res => {
+      console.log(res)
+      this.response = res
+      console.log(this.response.status)
+      if (this.response.status == 200) {
+        this.check = false
         
-        }
-        if(this.test1 == false && this.test==false){
-          this.check = false
-        }
-        else{
-          this.check = true
-        }
-      console.log(this.form)
+
+      }
+      if (this.response.status != 200) {
+        this.check = true
+        
+
+      }
+
+    });
+
     }
 }
 

@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="container-fluid">
 
 
@@ -7,7 +8,7 @@
         <h3>Add Employee</h3>
         <div class="row">
             <div class="col-md-12">
-                <input type="text" placeholder="FirstName" name="Firstname" [(ngModel)]="employer.FirstName" [class.test2]="test2">
+                <input type="text" placeholder="FirstName" name="Firstname" [(ngModel)]="employer.firstName" [class.test2]="test2">
             </div>
         </div>
         <div class="error">
@@ -16,7 +17,7 @@
 
         <div class="row">
             <div class="col-md-12">
-                <input type="text" placeholder="LastName" name="LastName" [(ngModel)]="employer.LastName" [class.test3]="test3">
+                <input type="text" placeholder="LastName" name="LastName" [(ngModel)]="employer.lastName" [class.test3]="test3">
             </div>
         </div>
         <div class="error">
@@ -25,7 +26,7 @@
 
         <div class="row">
             <div class="col-md-12">
-                <input type="email" placeholder="Email" name="email" [(ngModel)]="employer.email" [class.test]="test">
+                <input type="email" placeholder="Email" name="Email" [(ngModel)]="employer.Email" [class.test]="test">
             </div>
         </div>
         <div class="error">
