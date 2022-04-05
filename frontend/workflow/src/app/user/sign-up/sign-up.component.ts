@@ -13,6 +13,7 @@ export class SignUpComponent implements OnInit {
 
   form={
     firstName:'',
+    phoneNumber:'',
     lastName:'',
     Email:'',
     password:'',

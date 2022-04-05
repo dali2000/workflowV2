@@ -12,6 +12,24 @@
 
         <br><br>
         <div class="row">
+
+            <div class="col-8 box">
+
+                <div class="row row-cols-1 ">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="First name" [(ngModel)]="user.firstName"
+                            name="firstName">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Last name" [(ngModel)]="user.lastName"
+                            name="lastName">
+                    </div>
+                    <div class="col" *ngIf="test">Département:</div>
+                    <div class="col" *ngIf="test">Group:</div>
+                    <div class="col">Role:{{user.role}}</div>
+
+                </div>
+
             <div class="col-md-7">
 
             </div>
@@ -20,7 +38,22 @@
             </div>
             <div class="col">
                 <button type="button"class="btn btn-primary" (click)="update()" [disabled]="!h"> Update</button>
+
             </div>
+            <div class="col-3 box">
+                <div class="row row-cols-1 ">
+                    <div class="col"><input type="text" class="form-control" placeholder="Location"
+                            [(ngModel)]="user.location" name="location"></div>
+                    <div class="col"></div>
+                    <div class="col"><input type="text" class="form-control" placeholder="Phone number"
+                            [(ngModel)]="user.phoneNumber" name="phoneNumber"></div>
+                    <div class="col"></div>
+
+
+                </div>
+            </div>
+
+
         </div>
         <div class="row">
             <div class="col box">
@@ -57,6 +90,9 @@
                     <div class="col">Role:{{user.role}}</div>
                 </div>
 
+    </div>
+</div>
+
             </div>
             <div class="col-3 box">
                 
@@ -88,3 +124,4 @@
 
         </div>
     </div>
+
