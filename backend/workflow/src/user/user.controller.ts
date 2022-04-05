@@ -42,10 +42,10 @@ export class UserController {
             message: 'User Created',
             data: user
         });
-        }
+        }  
 
 
-        
+                 
         
         return res;
     }
