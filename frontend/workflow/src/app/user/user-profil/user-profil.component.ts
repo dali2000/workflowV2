@@ -17,6 +17,7 @@ export class UserProfilComponent implements OnInit {
   edit1=false
   edit2=false
   edit3=false
+  edit4=false
   data:any
   token:any
   h=false
@@ -79,6 +80,17 @@ export class UserProfilComponent implements OnInit {
       this.edit3=false
     }
   }
+
+  Edit4(){
+    if(this.edit4==false){
+      this.h = true
+      this.edit4=true
+    }
+    else{
+      this.edit4=false
+    }
+  }
+  
 
   update(){
     this.http.put('http://localhost:3000/user/updateUser/'+this.id,this.user).subscribe(res => {
