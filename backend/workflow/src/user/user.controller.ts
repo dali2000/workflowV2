@@ -57,10 +57,20 @@ export class UserController {
     getUserByEmail(@Body() data:userDTO){
         return this.UserService.showOneByEmail(data.Email);
     }
-    // @Put('updateUser/:id')      // http://localhost:3000/user/updateUser/1
-    // updateUser(@Param('id') id:string, @Body() data:Partial<userDTO>){
-    //     return this.UserService.update(id, data);
-    // }
+    @Put('updateUser/:id')      // http://localhost:3000/user/updateUser/1
+    async updateUser(@Param('id') id:string, @Body() data:Partial<userDTO>,@Res ({passthrough: true}) res: Response){
+        // return this.UserService.update(id, data);
+        const user = await this.UserService.update(id, data);;
+        const jwt = await this.jwtService.signAsync({user: user});
+        res.status(200);
+        res.json({
+            status: '200',
+            message: 'User Logged In',
+            token: jwt,
+        });
+        return res;
+        
+    }
     @Delete('deleteUser/:id')    // http://localhost:3000/user/deleteUser/1
     deleteUser(@Param('id') id:string,@Res () res: Response){
         {   
