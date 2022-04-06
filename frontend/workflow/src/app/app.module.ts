@@ -25,6 +25,9 @@ import { ProfilComponent } from './user/profil/profil.component';
 import { ListEntrepriseComponent } from './entreprise/list-entreprise/list-entreprise.component';
 import { ProfilEntrepriseComponent } from './entreprise/profil-entreprise/profil-entreprise.component';
 import { UserProfilComponent } from './user/user-profil/user-profil.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { SuperadminHomeComponent } from './superAdmin/superadmin-home/superadmin-home.component';
+import { StatestiqueComponent } from './superAdmin/statestique/statestique.component';
 
 
 
@@ -34,8 +37,13 @@ const routes: Routes = [
   {path:"Login", component: LoginComponent},
   {path:'Home', component: HomeComponent},
 
-  { path: 'ajouter_admin', component: AjouterAdminComponent },
-  { path: 'liste_admin', component: ListAdminComponent },
+  
+  { path: 'homeSuperadmin', component: SuperadminHomeComponent ,children:[
+    { path: 'liste_admin', component: ListAdminComponent },
+    { path: 'statestique', component: StatestiqueComponent },
+    { path: 'ajouter_admin', component: AjouterAdminComponent },
+  ]},
+
  
   { path: 'add_entreprise', component: AddEntrepriseComponent },
   { path: 'list-entreprise', component: ListEntrepriseComponent },
@@ -68,6 +76,9 @@ const routes: Routes = [
     ListEntrepriseComponent,
     ProfilEntrepriseComponent,
     UserProfilComponent,
+    SidebarComponent,
+    SuperadminHomeComponent,
+    StatestiqueComponent,
    
     
   ],

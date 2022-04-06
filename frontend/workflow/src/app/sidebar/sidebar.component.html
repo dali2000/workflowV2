@@ -1,0 +1,63 @@
+<div [ngClass]="{'sidebar':true,'active':check}" style="z-index: 1000;">
+    <div class="log_content">
+        <div class="logo">
+            
+            <div class="logo_name"><img src="../assets/img/logo_light.png" ></div>
+        </div>
+        
+    </div>
+    <ul class="nav_list">
+        <li>
+            <a routerLink="/homeSuperadmin/statestique">
+                
+                <i class='bx bxs-user-detail' style="color: #0076FE;"></i>
+                <span class="links_name" style="color: #0076FE;">Statestique</span>
+            </a>
+            <span class="tool">Statestique</span>
+        </li>
+
+        <li>
+            <a routerLink="/homeSuperadmin/liste_admin">
+                <i class='bx bxs-business' style="color: #0076FE"></i>
+                <span class="links_name" style="color: #0076FE;">Admin</span>
+            </a>
+            <span class="tool">Admin</span>
+        </li>
+
+        <li>
+            <a routerLink="/lis">
+                <i class='bx bxs-business' style="color: #0076FE"></i>
+                <span class="links_name" style="color: #0076FE;">Entreprise</span>
+            </a>
+            <span class="tool">Entreprise</span>
+        </li>
+
+
+        <li>
+            <a routerLink="/List_syndics">
+               
+                <i class='bx bxs-component' style="color: #0076FE"></i>
+                <span class="links_name" style="color: #0076FE">Workflow</span>
+            </a>
+            <span class="tool">Workflow</span>
+        </li>
+    </ul>
+    <div class="profile_content" >
+        <div class="profile">
+            <div class="profile_details">
+                <div class="name_job">
+                    <div class="name" style="color: #50A1FF;">{{superadmin.Firstname}} </div>
+                    <div class="job" style="color: #50A1FF;">{{superadmin.Lastname}}</div>
+                </div>
+            </div>
+            <a (click)="logout()">
+                <i class='bx bx-log-out-circle'id="log_out" style="color: #0076FE"></i>
+                
+               </a>
+        </div>
+    </div>
+</div>
+<div>
+
+   
+</div>
