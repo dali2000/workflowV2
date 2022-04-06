@@ -22,9 +22,9 @@ export class LoginComponent implements OnInit {
   token:any;
   user1 :any;
   ngOnInit(): void {
-   
+
   }
-    
+
   message = ""
   message1 = ""
   message2 = ""
@@ -41,9 +41,9 @@ export class LoginComponent implements OnInit {
       headers.append('Authorization', `jwt ${this.token}`);
       localStorage.setItem('token',this.token);
       this.token = localStorage.getItem('token');
-      
 
-     
+
+
       this.data = jwtDecode(this.token);
       this.user1 = this.data.user;
       /*console.log(this.user1);*/
@@ -51,29 +51,29 @@ export class LoginComponent implements OnInit {
       if((this.user1.role =='super admin') ){
         this.router.navigate(['/homeSuperadmin/statestique'])
       }
-      else if((this.user1.role =='admin')){
+      else {
         this.router.navigate(['/Home'])
       }
 
-       
 
-     
+
+
     });
     if((this.data.Email!=this.user.Email) || (this.data.password!=this.user.password)){
       this.test2 = true
       this.message2 = "Please check your email and password"
-      
+
     }
     else{
       this.test2 = false
       this.message2 = ""
     }
-    
-    
-    }
-    
 
-    
+
+    }
+
+
+
   }
 
 
