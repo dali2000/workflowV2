@@ -1,38 +1,43 @@
+<div class="row">
+  <div class="col">
 
-  <div class="row">
-    <div class="col">
+    <div class="d-flex justify-content-end">
+      <div class="row">
 
-      <div class="d-flex justify-content-end">
-        <div class="row">
-          <div class="col-md-2">
-            <i class='bx bx-user-circle'></i>
-          </div>
-          <div class="col">
-            <div class="dropdown">
-              <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="false">
-
-                
-
-               {{superadmin.Lastname}} {{superadmin.Firstname}} 
-
-              </button>
+        <div class="col">
+          <div class="dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false" style="color: #0076FE;">
+              <i class='bx bxs-user-circle'></i>
+              {{user.firstName}} {{user.lastName}}
+            </a>
+            <div class="dropdown-menu list" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" routerLink="/Profil/{{user.id}}"> Profil <i class='bx bx-user-circle'
+                  style="color:#0076FE;margin-left: 70px ;"></i></a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item"> Themes <i class='bx bx-paint-roll'
+                  style="color:#0076FE;margin-left: 55px ;"></i></a>
+              <a class="dropdown-item"> Settings <i class='bx bx-cog' style="color:#0076FE;margin-left: 55px ;"></i></a>
+              <a class="dropdown-item"> Log out <i class='bx bx-log-out-circle'
+                  style="color:#0076FE;margin-left: 57px ;"></i></a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
 <div class="row">
   <div class="col-md-2">
     <app-sidebar></app-sidebar>
   </div>
 
-  
+
   <div class="col cont ">
     <app-root></app-root>
   </div>
-  
+
 </div>
 
 

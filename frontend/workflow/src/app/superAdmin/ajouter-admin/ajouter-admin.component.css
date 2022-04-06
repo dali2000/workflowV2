@@ -7,8 +7,9 @@
     -moz-box-shadow: 0px 0px 7px 5px rgba(150, 150, 150, 0.57);
     margin: auto;
     margin-top: 5%;
+    margin-left: 5%;
     padding: 30px;
-    width: 40%;
+    width: auto;
   }
   #btn{
    margin-top:5%;  

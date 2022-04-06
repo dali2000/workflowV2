@@ -1,6 +1,104 @@
-<app-navbar></app-navbar>
+<app-navbar *ngIf="user.role != 'super admin'" ></app-navbar>
+<app-sidebar *ngIf="user.role != 'admin'"></app-sidebar>
 
-<div class="container content">
+ <!-- proil super admin -->
+<div class="supadmin" *ngIf="user.role == 'super admin'" >
+<div class="container content" >
+    <div class="list">
+        <div class="cover">
+            <img src="../assets/img/photo_c.jpg" class="img-couvertur" alt="">
+        </div>
+        <div class="d-flex justify-content-start">
+            <img src="../assets/img/photo_profil.jpg" class="img-profil">
+        </div>
+
+
+        <div class="d-flex flex-row-reverse bd-highlight">
+            <div class="p-2 bd-highlight">
+            <div class="col">
+                <button type="button"class="btn btn-primary" (click)="update()" [disabled]="!h"> Update</button>
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col box">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="First name" [(ngModel)]="user.firstName"
+                            name="firstName" [disabled]="!edit">
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn1 btn-edit" (click)="Edit()"><i
+                                class='bx bx-edit-alt'></i></button>
+                    </div>
+                </div>
+               
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Last name" [(ngModel)]="user.lastName"
+                            name="lastName" [disabled]="!edit1">
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn1 btn-edit" (click)="Edit1()"><i
+                                class='bx bx-edit-alt'></i></button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Role" [(ngModel)]="user.role" name="role" [disabled]="!edit4" >
+                    </div>
+                    <div class="col" >
+                        <button type="button" hidden class="btn1 btn-edit"><i
+                                class='bx bx-edit-alt'></i></button>
+                    </div>
+                </div>
+                <div class="row" *ngIf="test">
+                    <div class="col" >Département:</div>
+                </div>
+                <br>
+                <div class="row" *ngIf="test">
+                    <div class="col" >Group:</div>
+                </div>
+                <br>
+                
+
+            </div>
+            <div class="col-3 box">
+                
+                    <div class="row" >
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" placeholder="Location" [(ngModel)]="user.location"
+                                name="location" [disabled]="!edit2">
+                        </div>
+                        <div class="col-md-4">
+                            <button type="button" class="btn1 btn-edit" (click)="Edit2()"><i
+                                    class='bx bx-edit-alt'></i></button>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" placeholder="Phone number"
+                                [(ngModel)]="user.phoneNumber" name="phoneNumber" [disabled]="!edit3">
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn1 btn-edit" (click)="Edit3()"><i
+                                    class='bx bx-edit-alt'></i></button>
+                        </div>
+                    </div>
+                    
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+ <!-- proil-->
+<div class="container content" *ngIf="user.role != 'super admin'" >
     <div class="list">
         <div class="cover">
             <img src="../assets/img/photo_c.jpg" class="img-couvertur" alt="">

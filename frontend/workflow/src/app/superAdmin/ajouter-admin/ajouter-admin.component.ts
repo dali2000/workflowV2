@@ -19,16 +19,19 @@ export class AjouterAdminComponent implements OnInit {
     location: '',
     phoneNumber:'',
   }
-
+  CPassword:any
 
   message = ""
   message1 = ""
   message2 = ""
   message3 = ""
+  message4 = ""
+  message5 = ""
   test = false
   test1 = false
   test2 = false
   test3 = false
+  test4 = false
 
   check = true
   response: any
@@ -73,7 +76,7 @@ export class AjouterAdminComponent implements OnInit {
       this.test = false
     }
 
-    if (this.Admin.password == "") {
+    if (this.Admin.password == "")  {
       this.message1 = "password is required"
       this.test1 = true
       console.log(this.message1)
@@ -84,7 +87,21 @@ export class AjouterAdminComponent implements OnInit {
 
 
     }
-    if (this.test == false && this.test1 == false && this.test2 == false && this.test3 == false) {
+
+    if((this.CPassword == "") || (this.CPassword != this.Admin.password)) {
+      this.message4 = "incorrect Password"
+      this.test4 = true
+      console.log(this.message4)
+    }
+
+    else{
+      this.message4 = ""
+      this.test4 = false
+    }
+
+
+
+    if (this.test == false && this.test1 == false && this.test2 == false && this.test3 == false && this.test4==false)   {
       console.log(this.Admin)
       this.http.post('http://localhost:3000/user/addUser', this.Admin).subscribe(res => {
         console.log(res)
@@ -92,12 +109,13 @@ export class AjouterAdminComponent implements OnInit {
         console.log(this.response.status)
         if (this.response.status == 200) {
           this.check = false
-          
+         this.message5 = "User Existe"
+
 
         }
         if (this.response.status != 200) {
           this.check = true
-          
+          this.message5=""
 
         }
 
