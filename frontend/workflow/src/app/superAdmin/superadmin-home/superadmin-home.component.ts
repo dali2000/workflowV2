@@ -9,11 +9,23 @@ import jwtDecode from 'jwt-decode';
 })
 export class SuperadminHomeComponent implements OnInit {
 
+
   constructor(private router: Router) { }
   
   token :any;
   data :any;
   user :any;
+
+  superadmin={
+    Firstname:'boff',
+    Lastname:'ahmed',
+    Email:'',
+
+
+  }
+ 
+
+
   ngOnInit(): void {
     this.token = localStorage.getItem('token');
     this.data = jwtDecode(this.token);
