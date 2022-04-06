@@ -28,7 +28,9 @@ export class UserController {
         if(users){
             res.status(400);
             res.json({
-                message: 'User Already Exists'
+                status: '400',
+                message: 'User Already Exists',
+                data:data
             });
         }
         else{   
@@ -36,17 +38,16 @@ export class UserController {
         const HashPassword = await bcrypt.hash(data.password, 10);
         data.password = HashPassword;
         const user = await this.UserService.create(data);
-        res.status(200);
-        res.json({
-            status: '200',
-            message: 'User Created',
-            data: user
-        });
-        }  
+            if(user){
+                res.status(200);
+                res.json({
+                    status: '200',
+                    message: 'User Created',
+                    data: user
+                });
+            }
 
-
-                 
-        
+        }
         return res;
     }
     @Get('getUser/:id')       // http://localhost:3000/user/getUser/1
