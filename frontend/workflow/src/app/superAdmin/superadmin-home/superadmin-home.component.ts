@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SuperadminHomeComponent implements OnInit {
 
- 
+  superadmin={
+    Firstname:'boff',
+    Lastname:'ahmed',
+    Email:'',
+
+
+  }
   constructor() { }
 
   ngOnInit(): void {

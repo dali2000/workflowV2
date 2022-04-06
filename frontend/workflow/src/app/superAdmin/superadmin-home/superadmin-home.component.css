@@ -1,5 +1,14 @@
 
-.container{
+
+.cont{
+  margin-right: 5%;
+}
+
+
+
+
+
+/* .container{
     margin-right: 0%;
 }
 .box{
@@ -10,17 +19,17 @@
     padding: 15px;
     border-radius: 5px;
   width: 100%;
-  margin-left: 2%;
+  margin-left: 5%;
   margin-top: 2%;
-
   height: auto;
 }
 
 .box2{
    margin-left:5%;
    margin-right: 5%;
+   width: auto;
 }
 
  .btn .dropdown-toggle{
     overflow: unset;
-}
+} */
