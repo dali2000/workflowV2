@@ -5,6 +5,13 @@
         <h3>Sign Up to Easy Flow</h3>
         <div class="row">
             <div class="col-md-12">
+                <div class="alert alert-danger" [hidden]="!test2">
+                    {{message2}}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
                 <input type="email" placeholder="Email" name="email" [(ngModel)]="form.Email">
             </div>
         </div>
@@ -31,7 +38,7 @@
         <br>
         <div class="row">
             <div class="col-md-12">
-                <a href="">You have account?</a>
+                <a routerLink="/Login">You have account?</a>
             </div>
         </div>
         <div class="row">
