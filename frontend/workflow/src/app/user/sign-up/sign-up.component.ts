@@ -27,6 +27,8 @@ export class SignUpComponent implements OnInit {
   test =false
   test1 =false
   check = true
+  message2=""
+  test2 = false
   response:any
   ngOnInit(): void {
     this.test = false
@@ -67,19 +69,21 @@ export class SignUpComponent implements OnInit {
     if(this.test == false && this.test1 == false){
       console.log(this.form)
       this.http.post('http://localhost:3000/user/addUser', this.form).subscribe(res => {
-        console.log(res)
+ 
         this.response = res
         console.log(this.response.status)
         if (this.response.status == 200) {
           this.check = false
-          
+          this.router.navigate(['/Login'])
 
         }
-        if (this.response.status != 200) {
-          this.check = true
+        else {
+          this.test2 = true
+          this.message2 = "Email allerady exist"
           
-
         }
+
+
 
       });
     }
