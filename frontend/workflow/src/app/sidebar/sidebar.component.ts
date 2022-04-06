@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import jwtDecode from 'jwt-decode';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,17 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  superadmin={
-    Firstname:'boff',
-    Lastname:'ahmed',
-    Email:'',
+  
 
-
+  constructor(private router: Router) { }
+  token :any;
+  data :any;
+  user :any;
+  ngOnInit(): void {
+    this.token = localStorage.getItem('token');
+    this.data = jwtDecode(this.token);
+    this.user = this.data.user;
+    console.log(this.user);
   }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  logout(){
+    localStorage.removeItem('token');
+    this.router.navigate(['/Login'])
   }
 
   public check =true
@@ -28,10 +35,7 @@ export class SidebarComponent implements OnInit {
     else{
       this.check=true
     }
+    
   }
-  
-  logout(){
-    localStorage.removeItem('token');
-    //this.router.navigate(['/Login'])
-  }
+
 }

@@ -10,13 +10,14 @@ import { Router } from '@angular/router';
 export class AjouterAdminComponent implements OnInit {
 
   constructor(private http: HttpClient, private router: Router) { }
-  form = {
+  Admin = {
     Email: '',
     password: '',
     role: '',
     firstName: '',
     lastName: '',
     location: '',
+    phoneNumber:'',
   }
 
 
@@ -41,7 +42,7 @@ export class AjouterAdminComponent implements OnInit {
   AddAdmin() {
 
     this.check=true
-    if (this.form.firstName == "") {
+    if (this.Admin.firstName == "") {
       this.message2 = "firstName is required"
       this.test2 = true
       console.log(this.message2)
@@ -51,7 +52,7 @@ export class AjouterAdminComponent implements OnInit {
       this.test2 = false
     }
 
-    if (this.form.lastName == "") {
+    if (this.Admin.lastName == "") {
       this.message3 = "lastName is required"
       this.test3 = true
       console.log(this.message3)
@@ -62,7 +63,7 @@ export class AjouterAdminComponent implements OnInit {
     }
 
 
-    if (this.form.Email == "") {
+    if (this.Admin.Email == "") {
       this.message = "Email is required"
       this.test = true
       console.log(this.message)
@@ -72,7 +73,7 @@ export class AjouterAdminComponent implements OnInit {
       this.test = false
     }
 
-    if (this.form.password == "") {
+    if (this.Admin.password == "") {
       this.message1 = "password is required"
       this.test1 = true
       console.log(this.message1)
@@ -84,8 +85,8 @@ export class AjouterAdminComponent implements OnInit {
 
     }
     if (this.test == false && this.test1 == false && this.test2 == false && this.test3 == false) {
-      console.log(this.form)
-      this.http.post('http://localhost:3000/user/addUser', this.form).subscribe(res => {
+      console.log(this.Admin)
+      this.http.post('http://localhost:3000/user/addUser', this.Admin).subscribe(res => {
         console.log(res)
         this.response = res
         console.log(this.response.status)
