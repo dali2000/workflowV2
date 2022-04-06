@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import jwtDecode from 'jwt-decode';
 
 
 @Component({
@@ -19,8 +20,9 @@ export class LoginComponent implements OnInit {
   }
   data:any = {};
   token:any;
+  user1 :any;
   ngOnInit(): void {
-    
+   
   }
     
   message = ""
@@ -39,12 +41,18 @@ export class LoginComponent implements OnInit {
       headers.append('Authorization', `jwt ${this.token}`);
       localStorage.setItem('token',this.token);
       this.token = localStorage.getItem('token');
+      
 
-      if((this.token.role =='super') ||(this.token !=null)){
-        this.router.navigate(['/homeSuperadmin'])
+     
+      this.data = jwtDecode(this.token);
+      this.user1 = this.data.user;
+      /*console.log(this.user1);*/
+      console.log(this.user1.role)
+      if((this.user1.role =='super admin') ){
+        this.router.navigate(['/homeSuperadmin/statestique'])
       }
-      else if((this.token.user.role =='admin') ||(this.token !=null)){
-        this.router.navigate(['/homeAdmin'])
+      else if((this.user1.role =='admin')){
+        this.router.navigate(['/Home'])
       }
 
        

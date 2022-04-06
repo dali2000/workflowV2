@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import jwtDecode from 'jwt-decode';
 
 @Component({
   selector: 'app-list-admin',
@@ -12,7 +13,19 @@ export class ListAdminComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router) { }
 
   admins:any;
+  data:any
+  token:any
+  user:any
   ngOnInit(): void {
+    this.token = localStorage.getItem('token');
+    this.data = jwtDecode(this.token);
+    this.user = this.data.user;
+    console.log(this.user);
+
+
+
+
+
     this.getAllAdmin()
   }
 
