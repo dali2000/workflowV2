@@ -38,15 +38,20 @@ const routes: Routes = [
   {path:'Home', component: HomeComponent},
 
   
+
   { path: 'homeSuperadmin', component: SuperadminHomeComponent ,children:[
-    { path: 'liste_admin', component: ListAdminComponent },
     { path: 'statestique', component: StatestiqueComponent },
+    //admin
+    { path: 'liste_admin', component: ListAdminComponent },
     { path: 'ajouter_admin', component: AjouterAdminComponent },
+    //entreprise
+    { path: 'list-entreprise', component: ListEntrepriseComponent },
+    { path: 'add_entreprise', component: AddEntrepriseComponent },
   ]},
 
  
-  { path: 'add_entreprise', component: AddEntrepriseComponent },
-  { path: 'list-entreprise', component: ListEntrepriseComponent },
+ 
+  
   { path: 'profil-entreprise/:id', component: ProfilEntrepriseComponent },
 
   { path: 'add_employee', component: AddEmployeeComponent },
