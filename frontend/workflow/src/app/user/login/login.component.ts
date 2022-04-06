@@ -22,9 +22,11 @@ export class LoginComponent implements OnInit {
     
   message = ""
   message1 = ""
+  message2 = ""
 
   test = false
   test1 = false
+  test2 = false
 
   login(){
     this.http.post('http://localhost:3000/user/login',this.user).subscribe(res=>{
@@ -38,6 +40,11 @@ export class LoginComponent implements OnInit {
     });
     if(this.token !=null){
       this.router.navigate(['/Home'])
+    }
+    else{
+      this.test2 = true
+      this.message2 = "Please check your email and password"
+      
     }
   }
 
