@@ -18,10 +18,10 @@
     background-color: white;
     padding: 15px;
     border-radius: 5px;
-  width: 100%;
+  ;
   margin-left: 2%;
   margin-top: 2%;
-  
+  width: auto;
 
   height: auto;
 }
@@ -36,3 +36,7 @@
  .btn .dropdown-toggle{
     overflow: unset;
 } 
+
+.col{
+    
+}
