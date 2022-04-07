@@ -1,6 +1,5 @@
-<app-navbar *ngIf="user.role != 'super admin'"></app-navbar>
+<app-nav-bar-admin *ngIf="user.role != 'super admin'"></app-nav-bar-admin>
 <app-sidebar *ngIf="user.role != 'admin'"></app-sidebar>
-
 <div class="supadmin" *ngIf="user.role == 'super admin'">
     <div class="d-flex justify-content-end" style="margin-right: -18%; margin-bottom: -4%;">
         <div class="row">
