@@ -31,14 +31,15 @@ import { StatestiqueComponent } from './superAdmin/statestique/statestique.compo
 
 
 
+
 const routes: Routes = [
   { path:'', component: PwelcomeComponent },
   { path: 'SignUp', component: SignUpComponent },
   {path:"Login", component: LoginComponent},
   {path:'Home', component: HomeComponent},
-  
 
-  
+
+
 
   { path: 'homeSuperadmin', component: SuperadminHomeComponent ,children:[
     { path: 'statestique', component: StatestiqueComponent },
@@ -50,16 +51,17 @@ const routes: Routes = [
     { path: 'add_entreprise', component: AddEntrepriseComponent },
   ]},
 
- 
- 
-  
+
+
+
   { path: 'profil-entreprise/:id', component: ProfilEntrepriseComponent },
 
   { path: 'add_employee', component: AddEmployeeComponent },
   { path: 'list_employee', component: ListEmployeeComponent },
-  
+
   { path: 'UserProfil/:id', component: ProfilComponent },
   { path: 'Profil/:id', component: UserProfilComponent },
+
 
 
 ];  // <-- import RouterModule and define routes
@@ -85,8 +87,9 @@ const routes: Routes = [
     SidebarComponent,
     SuperadminHomeComponent,
     StatestiqueComponent,
-   
-    
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -94,10 +97,10 @@ const routes: Routes = [
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
- 
-   
-    
-   
+
+
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
