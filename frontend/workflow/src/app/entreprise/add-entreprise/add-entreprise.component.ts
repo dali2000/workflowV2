@@ -15,8 +15,8 @@ export class AddEntrepriseComponent implements OnInit {
     password:'',
     Name:'',
     location:'',
-    datedebut:'',
-    datefin:'',
+    dateDeb:'',
+    dateFin:'',
     Cpassword:'',
     }
     dateSysteme:any;
@@ -54,35 +54,42 @@ this.dateSysteme=this.datePipe.transform(this.Mydtae, 'yyyy-dd-MM');
   response:any
   AddEntreprise(){
 
-    // this.http.post('http://localhost:3000/Enterprise/addEnterprise', this.form).subscribe(res => {
-    //   console.log(res)
-    //   this.response = res
-    //   console.log(this.response.status)
-    //   if (this.response.status == 200) {
-    //     this.check = false
-        
-
-    //   }
-    //   if (this.response.status != 200) {
-    //     this.check = true
-        
-
-    //   }
-
-    // });
 //***************verifie le date*****************
-if(( this.form.datedebut=="" || this.form.datefin=="")||(this.dateSysteme >= this.form.datedebut ) ||(this.form.datedebut > this.form.datefin)) {
+if(( this.form.dateDeb=="" || this.form.dateFin=="")||(this.dateSysteme >= this.form.dateDeb ) ||(this.form.dateDeb > this.form.dateFin)) {
   console.log('date debut est inferieur a la date systeme')
   this.testdate=true;
   this.messagedate="check date";
 }
 
 else{
+
   this.messagedate="";
   this.testdate=false;
 }
+if(this.testdate== false)
+{
+  this.http.post('http://localhost:3000/Enterprise/addEnterprise', this.form).subscribe(res => {
+    console.log(res)
+    this.response = res
+    console.log(this.response.status)
+    if (this.response.status == 200) {
+      this.check = false
+
+
+    }
+    if (this.response.status != 200) {
+      this.check = true
+
+
+    }
+
+  });
+}
+else{
+console.log("error")
+}
    console.log(this.dateSysteme);
-  console.log(this.form.datefin);
+  console.log(this.form.dateFin);
     }
 }
 
