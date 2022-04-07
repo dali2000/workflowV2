@@ -37,8 +37,9 @@ export class AddEntrepriseComponent implements OnInit {
     this.test =false
     this.test1 =false
     this.check = true
+    this.testdate=false
 this.dateSysteme=this.datePipe.transform(this.Mydtae, 'yyyy-dd-MM');
-
+this.messagedate=""
 
   }
 
@@ -58,7 +59,7 @@ this.dateSysteme=this.datePipe.transform(this.Mydtae, 'yyyy-dd-MM');
 if(( this.form.dateDeb=="" || this.form.dateFin=="")||(this.dateSysteme >= this.form.dateDeb ) ||(this.form.dateDeb > this.form.dateFin)) {
   console.log('date debut est inferieur a la date systeme')
   this.testdate=true;
-  this.messagedate="check date";
+  this.messagedate="Please check date";
 }
 
 else{
