@@ -25,6 +25,11 @@ export class Enterprise {
 
   @Column({ default: true })
   isActive: boolean;
+
+  @Column()
+  dateDeb: Date;
+  @Column()
+  dateFin: Date;
 }
 
 function Primary() {

@@ -4,4 +4,7 @@ export interface enterpriseDTO{
     password: string;
     location: string;
     isActive: boolean;
+    dateDeb:Date;
+    dateFin:Date;
+
 }
