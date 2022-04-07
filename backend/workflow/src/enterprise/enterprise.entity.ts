@@ -12,7 +12,7 @@ export class Enterprise {
 
   Name: string;
 
-  @Column()
+  @Column() 
   location: string;
   
   @Column({unique: true})
