@@ -58,7 +58,7 @@ const routes: Routes = [
 
 
 
-  
+
 //dashbord super admin
 
   { path: 'homeSuperadmin', component: SuperadminHomeComponent ,children:[
@@ -76,7 +76,7 @@ const routes: Routes = [
 
 
   { path: 's', component:StatestiqueadminComponent },
-=======
+
 //dashbord admin
 { path: 'homeadmin', component: HomeadminComponent,children:[
   { path: 'list-entreprise', component: ListEntrepriseComponent },
@@ -140,8 +140,8 @@ const routes: Routes = [
     NavBarAdminComponent,
     WorkflowComponent,
     PagestatestiqueadminComponent,
-   
-    
+
+
 
   ],
   imports: [

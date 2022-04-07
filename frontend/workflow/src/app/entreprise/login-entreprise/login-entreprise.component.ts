@@ -37,23 +37,23 @@ export class LoginEntrepriseComponent implements OnInit {
       this.data = res
       this.token = this.data.jwt
       console.log(res)
-      const headers =new Headers();
-      // headers.append('Authorization', `jwt ${this.token}`);
-      localStorage.setItem('token',this.token);
-      this.token = localStorage.getItem('token');
+        const headers =new Headers();
+        // headers.append('Authorization', `jwt ${this.token}`);
+        localStorage.setItem('token',this.token);
+        this.token = localStorage.getItem('token');
 
 
 
-      this.data = jwtDecode(this.token);
-      this.user1 = this.data.user;
-      /*console.log(this.user1);*/
-      console.log(this.user1.role)
-      if(this.token){
-        this.router.navigate(['/HomeEntreprise'])
-      }
-      else {
-        this.router.navigate(['/Home'])
-      }
+        this.data = jwtDecode(this.token);
+        this.user1 = this.data.user;
+        /*console.log(this.user1);*/
+        console.log(this.user1.role)
+        if(this.token){
+          this.router.navigate(['/HomeEntreprise'])
+        }
+        else {
+          this.router.navigate(['/Home'])
+        }
 
 
 
