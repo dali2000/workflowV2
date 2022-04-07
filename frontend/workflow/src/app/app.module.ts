@@ -32,6 +32,10 @@ import { StatestiqueadminComponent } from './superAdmin/statestiqueadmin/statest
 import { StatestiqueworkflowComponent } from './superAdmin/statestiqueworkflow/statestiqueworkflow.component';
 
 import { DatePipe } from '@angular/common';
+import { HomeadminComponent } from './Dashbordadmin/homeadmin/homeadmin.component';
+import { NavBarAdminComponent } from './Dashbordadmin/nav-bar-admin/nav-bar-admin.component';
+import { WorkflowComponent } from './Dashbordadmin/workflow/workflow.component';
+import { PagestatestiqueadminComponent } from './Dashbordadmin/pagestatestiqueadmin/pagestatestiqueadmin.component';
 
 const routes: Routes = [
   { path:'', component: PwelcomeComponent },
@@ -41,7 +45,7 @@ const routes: Routes = [
   
 
   
-
+//dashbord super admin
   { path: 'homeSuperadmin', component: SuperadminHomeComponent ,children:[
     { path: 'statestique', component: StatestiqueComponent },
     //admin
@@ -52,7 +56,15 @@ const routes: Routes = [
     { path: 'add_entreprise', component: AddEntrepriseComponent },
   ]},
 
-  { path: 's', component:StatestiqueadminComponent },
+
+//dashbord admin
+{ path: 'homeadmin', component: HomeadminComponent,children:[
+  { path: 'list-entreprise', component: ListEntrepriseComponent },
+  { path: 'add_entreprise', component: AddEntrepriseComponent },
+  { path: 'home', component: PagestatestiqueadminComponent },
+
+
+]},
 
  
   
@@ -90,6 +102,10 @@ const routes: Routes = [
     StatestiqueComponent,
     StatestiqueadminComponent,
     StatestiqueworkflowComponent,
+    HomeadminComponent,
+    NavBarAdminComponent,
+    WorkflowComponent,
+    PagestatestiqueadminComponent,
    
     
   ],
