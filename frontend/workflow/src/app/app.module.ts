@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 
 import { PwelcomeComponent } from './pwelcome/pwelcome.component';
 import { LoginComponent } from './user/login/login.component';
+
 import { NavbarComponent } from './navbar/navbar.component';
 import { AjouterAdminComponent } from './superAdmin/ajouter-admin/ajouter-admin.component';
 import { HomeComponent } from './home/home.component';
@@ -32,20 +33,34 @@ import { StatestiqueadminComponent } from './superAdmin/statestiqueadmin/statest
 import { StatestiqueworkflowComponent } from './superAdmin/statestiqueworkflow/statestiqueworkflow.component';
 
 import { DatePipe } from '@angular/common';
+
+import { LoginEntrepriseComponent } from './entreprise/login-entreprise/login-entreprise.component';
+import { HomeEntrepriseComponent } from './entreprise/home-entreprise/home-entreprise.component';
+import { NarEntrepriseComponent } from './entreprise/nar-entreprise/nar-entreprise.component';
+import { ProfilEntComponent } from './entreprise/profil-ent/profil-ent.component';
+
+
 import { HomeadminComponent } from './Dashbordadmin/homeadmin/homeadmin.component';
 import { NavBarAdminComponent } from './Dashbordadmin/nav-bar-admin/nav-bar-admin.component';
 import { WorkflowComponent } from './Dashbordadmin/workflow/workflow.component';
 import { PagestatestiqueadminComponent } from './Dashbordadmin/pagestatestiqueadmin/pagestatestiqueadmin.component';
+
 
 const routes: Routes = [
   { path:'', component: PwelcomeComponent },
   { path: 'SignUp', component: SignUpComponent },
   {path:"Login", component: LoginComponent},
   {path:'Home', component: HomeComponent},
-  
+  {path:'LoginEntreprise', component:LoginEntrepriseComponent},
+  {path:'HomeEntreprise',component:HomeEntrepriseComponent},
+  { path: 'ProfilEnt/:id', component: ProfilEntComponent},
+
+
+
 
   
 //dashbord super admin
+
   { path: 'homeSuperadmin', component: SuperadminHomeComponent ,children:[
     { path: 'statestique', component: StatestiqueComponent },
     //admin
@@ -57,6 +72,11 @@ const routes: Routes = [
   ]},
 
 
+
+
+
+  { path: 's', component:StatestiqueadminComponent },
+=======
 //dashbord admin
 { path: 'homeadmin', component: HomeadminComponent,children:[
   { path: 'list-entreprise', component: ListEntrepriseComponent },
@@ -66,15 +86,18 @@ const routes: Routes = [
 
 ]},
 
- 
-  
+
+
+
   { path: 'profil-entreprise/:id', component: ProfilEntrepriseComponent },
 
   { path: 'add_employee', component: AddEmployeeComponent },
   { path: 'list_employee', component: ListEmployeeComponent },
-  
+
   { path: 'UserProfil/:id', component: ProfilComponent },
+
   { path: 'Profil/:id', component: UserProfilComponent },
+
 
 
 ];  // <-- import RouterModule and define routes
@@ -100,14 +123,26 @@ const routes: Routes = [
     SidebarComponent,
     SuperadminHomeComponent,
     StatestiqueComponent,
+
+
+
     StatestiqueadminComponent,
     StatestiqueworkflowComponent,
+
+    LoginEntrepriseComponent,
+    HomeEntrepriseComponent,
+    NarEntrepriseComponent,
+    ProfilEntComponent,
+
+
+
     HomeadminComponent,
     NavBarAdminComponent,
     WorkflowComponent,
     PagestatestiqueadminComponent,
    
     
+
   ],
   imports: [
     BrowserModule,
@@ -115,10 +150,10 @@ const routes: Routes = [
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
- 
-   
-    
-   
+
+
+
+
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

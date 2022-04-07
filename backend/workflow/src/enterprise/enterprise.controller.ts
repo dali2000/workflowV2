@@ -1,4 +1,4 @@
-import { BadRequestException, Body, Controller, Delete, Get, Param, Post, Put, Res } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Delete, Get, Param, Post, Put, Res, UnauthorizedException } from '@nestjs/common';
 import { enterpriseDTO } from './enterprise.dto';
 import { EnterpriseService } from './enterprise.service';
 import * as bcrypt  from 'bcrypt';
@@ -84,20 +84,19 @@ export class EnterpriseController {
     @Post('login')
     async login(@Body() data: enterpriseDTO, @Res({ passthrough: true }) res: Response) {
         const user = await this.EnterpriseService.showOneByEmail(data.Email);
-        if (!user) {
-            throw new BadRequestException('User does not exist');
+
+        if (!user || (!await bcrypt.compare(data.password, user.password))) {
+            throw new UnauthorizedException('Invalid creadentials');
         }
-        if (!await bcrypt.compare(data.password, user.password)) {
-            throw new BadRequestException('Incorrect Password');
+        else{
+            const jwt = await this.jwtService.sign({ user: user });
+            
+            return {
+                jwt
+            };
         }
-        const jwt = await this.jwtService.signAsync({ user: user });
-        res.status(200);
-        res.json({
-            status: '200',
-            message: 'User Logged In',
-            token: jwt,
-        });
-        return res;
+
+        
     }
 
 }
