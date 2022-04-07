@@ -108,7 +108,7 @@ export class UserController {
             
             return {
                 jwt
-            };
+            }
         }
     }
 
