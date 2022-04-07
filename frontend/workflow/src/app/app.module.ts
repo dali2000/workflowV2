@@ -33,6 +33,10 @@ import { StatestiqueadminComponent } from './superAdmin/statestiqueadmin/statest
 import { StatestiqueworkflowComponent } from './superAdmin/statestiqueworkflow/statestiqueworkflow.component';
 
 import { DatePipe } from '@angular/common';
+import { LoginEntrepriseComponent } from './entreprise/login-entreprise/login-entreprise.component';
+import { HomeEntrepriseComponent } from './entreprise/home-entreprise/home-entreprise.component';
+import { NarEntrepriseComponent } from './entreprise/nar-entreprise/nar-entreprise.component';
+import { ProfilEntComponent } from './entreprise/profil-ent/profil-ent.component';
 
 
 const routes: Routes = [
@@ -40,7 +44,9 @@ const routes: Routes = [
   { path: 'SignUp', component: SignUpComponent },
   {path:"Login", component: LoginComponent},
   {path:'Home', component: HomeComponent},
-
+  {path:'LoginEntreprise', component:LoginEntrepriseComponent},
+  {path:'HomeEntreprise',component:HomeEntrepriseComponent},
+  { path: 'ProfilEnt/:id', component: ProfilEntComponent},
 
 
 
@@ -68,6 +74,7 @@ const routes: Routes = [
   { path: 'list_employee', component: ListEmployeeComponent },
 
   { path: 'UserProfil/:id', component: ProfilComponent },
+
   { path: 'Profil/:id', component: UserProfilComponent },
 
 
@@ -100,6 +107,10 @@ const routes: Routes = [
 
     StatestiqueadminComponent,
     StatestiqueworkflowComponent,
+    LoginEntrepriseComponent,
+    HomeEntrepriseComponent,
+    NarEntrepriseComponent,
+    ProfilEntComponent,
 
 
   ],

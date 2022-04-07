@@ -13,14 +13,14 @@ export class LoginComponent implements OnInit {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  user={
-    Email:'',
-    password:'',
+  user = {
+    Email: '',
+    password: '',
 
   }
-  data:any = {};
-  token:any;
-  user1 :any;
+  data: any = {};
+  token: any;
+  user1: any;
   ngOnInit(): void {
 
   }
@@ -33,13 +33,13 @@ export class LoginComponent implements OnInit {
   test1 = false
   test2 = false
 
-  login(){
-    this.http.post('http://localhost:3000/user/login',this.user).subscribe(res=>{
+  login() {
+    this.http.post('http://localhost:3000/user/login', this.user).subscribe(res => {
       this.data = res
-      this.token = this.data.token;
-      const headers =new Headers();
+      this.token = this.data.jwt;
+      const headers = new Headers();
       headers.append('Authorization', `jwt ${this.token}`);
-      localStorage.setItem('token',this.token);
+      localStorage.setItem('token', this.token);
       this.token = localStorage.getItem('token');
 
 
@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
       this.user1 = this.data.user;
       /*console.log(this.user1);*/
       console.log(this.user1.role)
-      if((this.user1.role =='super admin') ){
+      if ((this.user1.role == 'super admin')) {
         this.router.navigate(['/homeSuperadmin/statestique'])
       }
       else {
@@ -59,21 +59,21 @@ export class LoginComponent implements OnInit {
 
 
     });
-    if((this.data.Email!=this.user.Email) || (this.data.password!=this.user.password)){
+    if ((this.data.Email != this.user.Email) || (this.data.password != this.user.password)) {
       this.test2 = true
       this.message2 = "Please check your email and password"
 
     }
-    else{
+    else {
       this.test2 = false
       this.message2 = ""
     }
 
 
-    }
-
-
-
   }
+
+
+
+}
 
 
