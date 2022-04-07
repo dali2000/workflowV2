@@ -1,5 +1,5 @@
-<app-navbar *ngIf="user.role =='admin'"></app-navbar>
-<app-sidebar *ngIf="user.role =='super admin'"></app-sidebar>
+<app-navbar *ngIf="user.role == 'admin'"></app-navbar>
+<app-sidebar *ngIf="user.role == 'super admin'"></app-sidebar>
 
 <!-- proil super admin -->
 <div class="supadmin" *ngIf="user.role == 'super admin'">
