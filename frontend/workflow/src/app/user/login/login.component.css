@@ -1,21 +1,28 @@
-.box {
+ .box {
     color: black;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0px 0px 7px 5px rgba(150, 150, 150, 0.57);
     -webkit-box-shadow: 0px 0px 7px 5px rgba(150, 150, 150, 0.57);
     -moz-box-shadow: 0px 0px 7px 5px rgba(150, 150, 150, 0.57);
-    margin: auto;
     margin-top: 7%;
+    
     padding: 30px;
-    width: 40%;
-  }
+    width: auto;
+    height: 110%;
+  } 
   .logo {
     margin-bottom: 20px;
     display: block;
     margin: auto;
     height: auto;
     width: 25%;
+  }
+  .logo1 {
+    height: 400px;
+    width: 400px;
+    margin-top:10%;
+    
   }
   h3,h5 {
     text-align: center;
