@@ -90,14 +90,14 @@ export class UserProfilComponent implements OnInit {
       this.edit4=false
     }
   }
-  
+
 
   update(){
     this.http.put('http://localhost:3000/user/updateUser/'+this.id,this.user).subscribe(res => {
       console.log(res);
       this.router.navigate(['Profil/'+this.id])
       this.data = res
-      this.token = this.data.token;
+      this.token = this.data.jwt;
       const headers =new Headers();
       headers.append('Authorization', `jwt ${this.token}`);
       localStorage.setItem('token',this.token);
