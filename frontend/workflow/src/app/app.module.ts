@@ -28,8 +28,10 @@ import { UserProfilComponent } from './user/user-profil/user-profil.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SuperadminHomeComponent } from './superAdmin/superadmin-home/superadmin-home.component';
 import { StatestiqueComponent } from './superAdmin/statestique/statestique.component';
+import { StatestiqueadminComponent } from './superAdmin/statestiqueadmin/statestiqueadmin.component';
+import { StatestiqueworkflowComponent } from './superAdmin/statestiqueworkflow/statestiqueworkflow.component';
 
-
+import { DatePipe } from '@angular/common';
 
 const routes: Routes = [
   { path:'', component: PwelcomeComponent },
@@ -50,7 +52,8 @@ const routes: Routes = [
     { path: 'add_entreprise', component: AddEntrepriseComponent },
   ]},
 
- 
+  { path: 's', component:StatestiqueadminComponent },
+
  
   
   { path: 'profil-entreprise/:id', component: ProfilEntrepriseComponent },
@@ -85,6 +88,8 @@ const routes: Routes = [
     SidebarComponent,
     SuperadminHomeComponent,
     StatestiqueComponent,
+    StatestiqueadminComponent,
+    StatestiqueworkflowComponent,
    
     
   ],
@@ -99,7 +104,7 @@ const routes: Routes = [
     
    
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

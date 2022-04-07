@@ -1,23 +1,16 @@
-
-
 <div class="container">
 
   <div class="list">
-    <div class="d-flex justify-content-end">
-      <button class="btn btn-outline-primary" routerLink="/homeSuperadmin/add_entreprise"><i class='bx bx-user-plus'></i> Add
-        Entreprise</button>
-    </div>
-    <div class="list-nav">
 
-
+    <div class="d-flex justify-content-between">
       <div class="d-flex justify-content-start">
-        <p> Entreprise List </p>
+        <h3>Entreprise List</h3>
       </div>
-
+      <div class="d-flex justify-content-end">
+        <button class="btn btn-outline-primary" routerLink="/homeSuperadmin/add_entreprise"><i class='bx bx-plus'></i>
+          Add Entreprise</button>
+      </div>
     </div>
-
-
-
 
 
     <div class="row">
@@ -29,7 +22,8 @@
               ...
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset" style="float: left;">
-              <a class="dropdown-item" style="color: rgb(29, 99, 252)" routerLink="/profil-entreprise/{{En.id}}">View</a>
+              <a class="dropdown-item" style="color: rgb(29, 99, 252)"
+                routerLink="/profil-entreprise/{{En.id}}">View</a>
               <a class="dropdown-item" style="color: rgb(252, 29, 29)" (click)="deleteEntreprise(En.id)">Delete</a>
               <a class="dropdown-item">Annuler</a>
             </div>
