@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 
 import { PwelcomeComponent } from './pwelcome/pwelcome.component';
 import { LoginComponent } from './user/login/login.component';
+
 import { NavbarComponent } from './navbar/navbar.component';
 import { AjouterAdminComponent } from './superAdmin/ajouter-admin/ajouter-admin.component';
 import { HomeComponent } from './home/home.component';
@@ -39,6 +40,7 @@ const routes: Routes = [
   { path: 'SignUp', component: SignUpComponent },
   {path:"Login", component: LoginComponent},
   {path:'Home', component: HomeComponent},
+
 
 
 
