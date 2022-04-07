@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import jwtDecode from 'jwt-decode';
 
 @Component({
   selector: 'app-add-entreprise',
@@ -17,14 +18,20 @@ export class AddEntrepriseComponent implements OnInit {
     datedebut:'',
     datefin:'',
     Cpassword:'',
-
-    
     }
     dateSysteme:any;
     Mydtae:string=new Date().toLocaleDateString();
-
+    data:any
+    token:any
+    user:any
   constructor(private http: HttpClient, private router: Router,private datePipe:DatePipe) { }
   ngOnInit(): void {
+    this.token = localStorage.getItem('token');
+    this.data = jwtDecode(this.token);
+    this.user = this.data.user;
+    console.log(this.user);
+
+
     this.message = ""
     this.message1 = ""
     this.test =false

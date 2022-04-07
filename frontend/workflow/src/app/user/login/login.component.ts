@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/homeSuperadmin/statestique'])
       }
       else {
-        this.router.navigate(['/Home'])
+        this.router.navigate(['/homeadmin'])
       }
 
 

@@ -33,10 +33,17 @@ import { StatestiqueadminComponent } from './superAdmin/statestiqueadmin/statest
 import { StatestiqueworkflowComponent } from './superAdmin/statestiqueworkflow/statestiqueworkflow.component';
 
 import { DatePipe } from '@angular/common';
+
 import { LoginEntrepriseComponent } from './entreprise/login-entreprise/login-entreprise.component';
 import { HomeEntrepriseComponent } from './entreprise/home-entreprise/home-entreprise.component';
 import { NarEntrepriseComponent } from './entreprise/nar-entreprise/nar-entreprise.component';
 import { ProfilEntComponent } from './entreprise/profil-ent/profil-ent.component';
+
+
+import { HomeadminComponent } from './Dashbordadmin/homeadmin/homeadmin.component';
+import { NavBarAdminComponent } from './Dashbordadmin/nav-bar-admin/nav-bar-admin.component';
+import { WorkflowComponent } from './Dashbordadmin/workflow/workflow.component';
+import { PagestatestiqueadminComponent } from './Dashbordadmin/pagestatestiqueadmin/pagestatestiqueadmin.component';
 
 
 const routes: Routes = [
@@ -51,6 +58,9 @@ const routes: Routes = [
 
 
 
+  
+//dashbord super admin
+
   { path: 'homeSuperadmin', component: SuperadminHomeComponent ,children:[
     { path: 'statestique', component: StatestiqueComponent },
     //admin
@@ -64,7 +74,18 @@ const routes: Routes = [
 
 
 
+
   { path: 's', component:StatestiqueadminComponent },
+=======
+//dashbord admin
+{ path: 'homeadmin', component: HomeadminComponent,children:[
+  { path: 'list-entreprise', component: ListEntrepriseComponent },
+  { path: 'add_entreprise', component: AddEntrepriseComponent },
+  { path: 'home', component: PagestatestiqueadminComponent },
+
+
+]},
+
 
 
 
@@ -107,11 +128,20 @@ const routes: Routes = [
 
     StatestiqueadminComponent,
     StatestiqueworkflowComponent,
+
     LoginEntrepriseComponent,
     HomeEntrepriseComponent,
     NarEntrepriseComponent,
     ProfilEntComponent,
 
+
+
+    HomeadminComponent,
+    NavBarAdminComponent,
+    WorkflowComponent,
+    PagestatestiqueadminComponent,
+   
+    
 
   ],
   imports: [

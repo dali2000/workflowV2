@@ -6,7 +6,6 @@
     -webkit-box-shadow: 0px 0px 7px 5px rgba(150, 150, 150, 0.57);
     -moz-box-shadow: 0px 0px 7px 5px rgba(150, 150, 150, 0.57);
     margin-top: 7%;
-    
     padding: 30px;
     width: auto;
     height: 110%;
@@ -19,9 +18,9 @@
     width: 25%;
   }
   .logo1 {
-    height: 400px;
+    height: auto;
     width: 400px;
-    margin-top:10%;
+    margin-top:30%;
     
   }
   h3,h5 {
