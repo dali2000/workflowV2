@@ -21,11 +21,14 @@ button{
     margin-top:2%;
 }
 
-
+#tb:hover{
+  background-color: rgba(214, 12, 12, 0.71);
+  border:1px solid rgba(214, 12, 12, 0.71);
+}
 
 
 @media screen and (max-width: 991px) {
-    
+
    .card{
        width:10rem;
    }
@@ -39,7 +42,7 @@ button{
         width:20rem;
     }
     .row{
-      
+
         margin-top:2%;
     }
  }
@@ -52,7 +55,7 @@ button{
         width:20rem;
     }
     .row{
-      
+
         margin-top:2%;
     }
  }
@@ -65,23 +68,23 @@ button{
         width:20rem;
     }
     .row{
-      
+
         margin-top:2%;
     }
  }
 
 
- 
+
 
  @media screen and (max-width: 340px) {
     .list{
         margin-left: 1%;
     }
     .row{
-      
+
         margin-top:2%;
     }
-   
+
  }
 
  @media screen and (max-width: 320px) {

@@ -16,6 +16,9 @@ export class ListAdminComponent implements OnInit {
   data:any
   token:any
   user:any
+
+  list :any=[];
+  j = 0;
   ngOnInit(): void {
     this.token = localStorage.getItem('token');
     this.data = jwtDecode(this.token);
@@ -32,15 +35,24 @@ export class ListAdminComponent implements OnInit {
   getAllAdmin() {
     this.http.get('http://localhost:3000/user/users').subscribe(res => {
       this.admins = res;
-      console.log(res);
+      // console.log(res);
+      for(let i=0;i<this.admins.length;i++){
+        if(this.admins[i].role=="admin"){
+          // console.log(this.admins[i])
+          this.list[this.j]=this.admins[i]
+          this.j++
+        }
+      }
+      console.log(this.list)
     });
+
   }
   deleteAdmin(id:any) {
     this.http.delete('http://localhost:3000/user/deleteUser/' + id).subscribe(res => {
       this.getAllAdmin();
       console.log(res)
     });
-    
+
   }
 
 }
