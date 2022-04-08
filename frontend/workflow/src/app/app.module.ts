@@ -44,6 +44,7 @@ import { HomeadminComponent } from './Dashbordadmin/homeadmin/homeadmin.componen
 import { NavBarAdminComponent } from './Dashbordadmin/nav-bar-admin/nav-bar-admin.component';
 import { WorkflowComponent } from './Dashbordadmin/workflow/workflow.component';
 import { PagestatestiqueadminComponent } from './Dashbordadmin/pagestatestiqueadmin/pagestatestiqueadmin.component';
+import { ListWorkflowComponent } from './workflow/list-workflow/list-workflow.component';
 
 
 const routes: Routes = [
@@ -71,7 +72,7 @@ const routes: Routes = [
     { path: 'add_entreprise', component: AddEntrepriseComponent },
   ]},
 
-
+  { path: 'list_workflow', component: ListWorkflowComponent },
 
 
 
@@ -140,6 +141,7 @@ const routes: Routes = [
     NavBarAdminComponent,
     WorkflowComponent,
     PagestatestiqueadminComponent,
+    ListWorkflowComponent,
 
 
 

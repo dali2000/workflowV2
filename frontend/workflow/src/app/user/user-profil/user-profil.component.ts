@@ -102,8 +102,9 @@ export class UserProfilComponent implements OnInit {
       headers.append('Authorization', `jwt ${this.token}`);
       localStorage.setItem('token',this.token);
       this.token = localStorage.getItem('token');
+      this.ngOnInit()
     });
     console.log(this.user)
-    this.ngOnInit()
+
   }
 }
