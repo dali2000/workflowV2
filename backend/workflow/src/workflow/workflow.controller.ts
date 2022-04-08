@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Res } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Res } from '@nestjs/common';
 import { workflowDTO } from './workflow.dto';
 import { WorkflowService } from './workflow.service';
 import { Response } from 'express';
@@ -35,7 +35,46 @@ export class WorkflowController {
         }
         return res;
     }
+
+    @Get('getWorkflow/:id')       // http://localhost:3000/user/getUser/1
+    getWorkflow(@Param('id') id:string){
+        return this.WorkflowService.showOne(id);
+    }
+
+    @Put('updateWorkflow/:id')
+    async updateWorkflow(@Param('id') id:string, @Body() data:Partial<workflowDTO>,@Res ({passthrough: true}) res: Response){
+        // return this.UserService.update(id, data);
+     
+        return this.WorkflowService.update(id, data);
         
+    }
+        
+    @Delete('deleteWorkflow/:id')    // http://localhost:3000/user/deleteUser/1
+    async deleteWorkflow(@Param('id') id:string,@Res () res: Response){
+        {   
+            const workflow = await this.WorkflowService.destroyWorkflow(id);
+             
+            if(!workflow){
+                res.status(404);
+                res.json({
+                    message: 'Workflow Not Found'
+                });
+            }else{
+
+                res.status(200);
+                res.json({
+                    status: '200',
+                    message: 'Workflow Deleted'
+                });
+            }
+            
+            
+            return res;
+            // return this.UserService.destroy(id);
+            
+
+        }
+    }
     
 }
 
