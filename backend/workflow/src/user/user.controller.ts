@@ -76,7 +76,7 @@ export class UserController {
             if(this.UserService.destroy(id)){
                 res.status(200);
                 res.json({
-                    status: '200',  
+                    status: '200',
                     message: 'User Deleted'
                 });
             }else{
