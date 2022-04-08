@@ -29,7 +29,7 @@ export class WorkflowService {
         await this.WorkflowRepository.update(id, data);
         return this.WorkflowRepository.findOne(id);
     }
-    async destroy(id: string){
+    async destroyWorkflow(id: string){
         await this.WorkflowRepository.delete(id);
         return {deleted: true};
     }
