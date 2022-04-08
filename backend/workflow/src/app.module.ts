@@ -8,6 +8,9 @@ import { User } from './user/user.entity';
 import { UserModule } from './user/user.module';
 import { EnterpriseModule } from './enterprise/enterprise.module';
 import { Enterprise } from './enterprise/enterprise.entity';
+import { WorkflowController } from './workflow/workflow.controller';
+import { WorkflowService } from './workflow/workflow.service';
+import { WorkflowModule } from './workflow/workflow.module';
 
 
 @Module({
@@ -29,9 +32,10 @@ import { Enterprise } from './enterprise/enterprise.entity';
       signOptions: { expiresIn: '1d' },
     }),
     EnterpriseModule,
+    WorkflowModule,
    
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, WorkflowController],
+  providers: [AppService, WorkflowService],
 })
 export class AppModule {}
