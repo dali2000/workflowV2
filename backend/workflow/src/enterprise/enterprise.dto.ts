@@ -8,6 +8,7 @@ export interface enterpriseDTO{
     isActive: boolean;
     dateDeb:Date;
     dateFin:Date;
+    nbJour: string;
     
 
 }
