@@ -1,11 +1,10 @@
 /* eslint-disable prettier/prettier */
 
 
-import { type } from 'os';
 import { Enterprise } from 'src/enterprise/enterprise.entity';
 import { UserRoleEnum } from 'src/enums/UserRoleEnum';
 import { TimestampEntity } from 'src/Generaics/timestamp.entities';
-import { Entity, Column, PrimaryGeneratedColumn, PrimaryColumn, OneToOne, OneToMany, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, PrimaryColumn, ManyToMany, ManyToOne } from 'typeorm';
 
 @Entity()
 export class User extends TimestampEntity {
@@ -39,6 +38,9 @@ export class User extends TimestampEntity {
 
   @Column({ default: true })
   isActive: boolean;
+
+  // @ManyToOne(()=>Enterprise,enterprise =>enterprise.id)
+  // enterprise:Enterprise
 
 }
 

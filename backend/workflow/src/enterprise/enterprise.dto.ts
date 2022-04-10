@@ -1,3 +1,5 @@
+import { User } from "src/user/user.entity";
+
 export interface enterpriseDTO{
     Name: string;
     Email: string;
@@ -6,5 +8,7 @@ export interface enterpriseDTO{
     isActive: boolean;
     dateDeb:Date;
     dateFin:Date;
+    nbJour: string;
+    
 
 }

@@ -1,10 +1,10 @@
 /* eslint-disable prettier/prettier */
 
 
-import { type } from 'os';
+import { IsEmail, IsNotEmpty } from 'class-validator';
 import { TimestampEntity } from 'src/Generaics/timestamp.entities';
 import { User } from 'src/user/user.entity';
-import { Entity, Column, PrimaryGeneratedColumn, PrimaryColumn, OneToOne, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, PrimaryColumn, OneToMany, JoinTable, JoinColumn } from 'typeorm';
 
 @Entity()
 export class Enterprise extends TimestampEntity  {
@@ -12,29 +12,39 @@ export class Enterprise extends TimestampEntity  {
   id: number;
 
   @Column()
-
+  @IsNotEmpty()
   Name: string;
 
   @Column() 
   location: string;
   
   @Column({unique: true})
-  
+  @IsEmail()
   Email: string;
 
-
+  @Column()
+  @IsNotEmpty()
+  nbJour: string;
 
   @Column()
+  @IsNotEmpty()
   password: string;
 
   @Column({ default: true })
   isActive: boolean;
 
   @Column()
+  @IsNotEmpty()
   dateDeb: Date;
   @Column()
+  @IsNotEmpty()
   dateFin: Date;
 
+
+  // @OneToMany(()=>User,user=>user.id)
+  
+  // @JoinTable()
+  // users:User[]
 }
 
 function Primary() {
