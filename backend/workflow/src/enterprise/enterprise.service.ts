@@ -13,11 +13,13 @@ export class EnterpriseService {
 
     ){}
     async showAll(){
-        return await this.EnterpriseRepository.find()
+        return await this.EnterpriseRepository.find({
+            
+        })
     }
     async showOne(id: string){
      
-        return await this.EnterpriseRepository.findOne({where: {id}});
+        return await this.EnterpriseRepository.findOne(id);
     }
     async showOneByEmail(Email: string){
         return await this.EnterpriseRepository.findOne({where: {Email}});

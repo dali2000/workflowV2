@@ -1,7 +1,8 @@
 /* eslint-disable prettier/prettier */
 
 
-import { Entity, Column, PrimaryGeneratedColumn, PrimaryColumn } from 'typeorm';
+import { Enterprise } from 'src/enterprise/enterprise.entity';
+import { Entity, Column, PrimaryGeneratedColumn, PrimaryColumn, ManyToMany, ManyToOne } from 'typeorm';
 
 @Entity()
 export class User {
@@ -32,6 +33,10 @@ export class User {
 
   @Column({ default: true })
   isActive: boolean;
+
+  // @ManyToOne(()=>Enterprise,enterprise =>enterprise.id)
+  // enterprise:Enterprise
+
 }
 
 function Primary() {

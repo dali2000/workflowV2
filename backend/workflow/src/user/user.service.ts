@@ -22,6 +22,9 @@ export class UserService {
     async showOneByEmail(Email: string){
         return await this.userRepository.findOne({where: {Email}});
     }
+    async showAdmins(role: string){
+        return await this.userRepository.find({where: {role}});
+    }
     async create(data:userDTO){
         const user = await this.userRepository.create(data);
         await this.userRepository.save(user);
