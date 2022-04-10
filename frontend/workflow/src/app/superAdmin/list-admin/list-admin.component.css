@@ -26,7 +26,9 @@ button{
   border:1px solid rgba(214, 12, 12, 0.71);
 }
 
-
+.card-title{
+  font-size: small;
+}
 @media screen and (max-width: 991px) {
 
    .card{

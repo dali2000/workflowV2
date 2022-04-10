@@ -1,1 +1,43 @@
-<p>list-workflow works!</p>
+<app-nav-bar-admin *ngIf="user.role != 'super admin'"></app-nav-bar-admin>
+<app-sidebar *ngIf="user.role != 'admin'"></app-sidebar>
+<div class="row" style="margin: 1%;">
+    <div class="col-md-3">
+    <div class="d-flex justify-content-around">
+    <button class="btn btn-primary">Report</button>
+    <button class="btn btn-outline-dark">Task</button>
+
+    </div>
+    </div>
+</div>
+<div class="d-flex flex-row-reverse bd-highlight">
+<div class="row">
+    <form>
+      <div class="form-group">
+        <input type="text" class="form-control" [(ngModel)]="term" name="term" placeholder="Search">
+      </div>
+    </form>
+  </div>
+</div>
+    <div class="row" style="margin: 1%;" >
+        <div class="col-md-3 "*ngFor="let Wo of workflow |filter:term;">
+
+            <div class="card border-primary mb-3" style="max-width: 18rem;">
+                <div class="dropdown mr-1" >
+                    <button class="b1" id="dropdownMenuOffset" data-toggle="dropdown" style="border:none;float: right;">
+                        ...
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset" style="float: left;">
+                      <a class="dropdown-item" style="color: rgb(29, 99, 252)"
+                        routerLink="/profil-entreprise/{id}}">View</a>
+                      <a class="dropdown-item" style="color: rgb(252, 29, 29)" >Delete</a>
+                      <a class="dropdown-item">Annuler</a>
+                    </div>
+                  </div>
+                <div class="card-body text-primary" style="margin-top: -12%;">
+                  <h5 class="card-title"><img src="../assets/img/work.png" class="img-couvertur" alt=""></h5>
+                  <p class="card-text">{{Wo.Name}}</p>
+                </div>
+        </div>
+        </div>
+
+    </div>

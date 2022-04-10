@@ -16,6 +16,8 @@ export class ProfilEntrepriseComponent implements OnInit {
   data:any
   token:any
   user:any
+  datedebut:any;
+ datefin:any;
   ngOnInit(): void {
 
     this.token = localStorage.getItem('token');
@@ -30,6 +32,8 @@ export class ProfilEntrepriseComponent implements OnInit {
 
     });
     this.getProfile()
+   
+    
   }
   getProfile(){
     this.http.get('http://localhost:3000/Enterprise/getEnterprise/'+this.id).subscribe(res => {
@@ -37,4 +41,6 @@ export class ProfilEntrepriseComponent implements OnInit {
       console.log(res);
     });
   }
+
+ 
 }

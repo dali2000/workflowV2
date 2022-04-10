@@ -14,21 +14,23 @@ export class ListEntrepriseComponent implements OnInit {
   data:any
   token:any
   user:any
+  
+  datedebut:any
+  datefin:any
   ngOnInit(): void {
     this.token = localStorage.getItem('token');
     this.data = jwtDecode(this.token);
     this.user = this.data.user;
     console.log(this.user);
-
-
-
     this.getEntreprises();
+    this.nbjour();
   }
   Entreprises:any
   getEntreprises(){
     this.http.get('http://localhost:3000/enterprise/Enterprise').subscribe(res=>{
       console.log(res)
       this.Entreprises = res
+     
     });
   }
   deleteEntreprise(id:any){
@@ -37,6 +39,12 @@ export class ListEntrepriseComponent implements OnInit {
       this.getEntreprises();
     });
 
+
   }
+  nbjour(){
+   
+  }
+
+  
 
 }

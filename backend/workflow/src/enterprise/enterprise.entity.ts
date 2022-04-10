@@ -16,6 +16,7 @@ export class Enterprise {
   location: string;
   
   @Column({unique: true})
+  
   Email: string;
 
 

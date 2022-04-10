@@ -5,9 +5,11 @@
     <div class="list-nav">
       <div class="d-flex justify-content-between">
         <div class="d-flex justify-content-start"> <h3>Admin list</h3></div>
-    <div class="d-flex justify-content-end">
-      <button class="btn btn-outline-primary" routerLink="/homeSuperadmin/ajouter_admin"><i class='bx bx-user-plus'></i> Add Admin</button></div>
-    </div>
+        <div class="d-flex justify-content-end">
+          <button class="btn btn-outline-primary"
+            routerLink="/homeSuperadmin/ajouter_admin"><i class='bx
+              bx-user-plus'></i> Add Admin</button></div>
+      </div>
 
 
 
@@ -15,25 +17,43 @@
     </div>
 
 
+    <div class="d-flex flex-row-reverse bd-highlight">
+      <div class="row">
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" [(ngModel)]="term"
+              name="term" placeholder="Search">
+          </div>
+        </form>
+      </div>
+    </div>
 
 
+    <div class="row">
+      <div class="col-md-3" *ngFor="let admin of list |filter:term" >
 
-    <div class="row" >
-      <div class="col-md-3" *ngFor="let admin of list;"  >
-
-        <div class="card"  >
+        <div class="card">
           <div class="card-img">
             <img src="../assets/img/photo_profil.jpg" class="card-img-top">
           </div>
           <div class="card-body">
-            <h5 class="card-title">{{admin.firstName}}</h5>
+            <div class="card-title"><b><span style="color: rgb(29, 99,
+                  252);width: auto;">FirstName:</span>{{admin.lastName}}</b></div>
+            <div class="card-title"><b><span style="color: rgb(29, 99, 252);">LastName:</span>{{admin.lastName}}</b></div>
+            <div class="card-title"><b><span style="color: rgb(29, 99, 252);
+                  margin: auto;">Email:</span>{{admin.Email}}</b></div>
+
             <div class="card-body-buttom">
               <div class="row">
                 <div class="col">
-                  <button class="btn btn-outline-primary" id="btn1" routerLink="/UserProfil/{{admin.id}}" style="width: inherit;">Consult</button>
+                  <button class="btn btn-outline-primary" id="btn1"
+                    routerLink="/UserProfil/{{admin.id}}" style="width:
+                    inherit;">Consult</button>
                 </div>
                 <div class="col">
-                  <button class="btn btn-primary" (click)="deleteAdmin(admin.id)"style="width: inherit;" id="tb"> execlude</button>
+                  <button class="btn btn-primary"
+                    (click)="deleteAdmin(admin.id)" style="width: inherit;"
+                    id="tb"> execlude</button>
                 </div>
               </div>
 

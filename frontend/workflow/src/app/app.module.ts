@@ -45,6 +45,8 @@ import { NavBarAdminComponent } from './Dashbordadmin/nav-bar-admin/nav-bar-admi
 import { WorkflowComponent } from './Dashbordadmin/workflow/workflow.component';
 import { PagestatestiqueadminComponent } from './Dashbordadmin/pagestatestiqueadmin/pagestatestiqueadmin.component';
 import { ListWorkflowComponent } from './workflow/list-workflow/list-workflow.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 
 const routes: Routes = [
@@ -70,9 +72,12 @@ const routes: Routes = [
     //entreprise
     { path: 'list-entreprise', component: ListEntrepriseComponent },
     { path: 'add_entreprise', component: AddEntrepriseComponent },
+    //workflow
+    { path: 'list_workflow', component: ListWorkflowComponent },
+
   ]},
 
-
+  { path: 'list_workflow', component: ListWorkflowComponent },
 
 
 
@@ -152,6 +157,7 @@ const routes: Routes = [
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    Ng2SearchPipeModule,
 
 
 
