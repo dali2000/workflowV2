@@ -21,7 +21,9 @@ export class Enterprise {
   @IsEmail()
   Email: string;
 
-
+  @Column()
+  @IsNotEmpty()
+  nbJour: string;
 
   @Column()
   @IsNotEmpty()
