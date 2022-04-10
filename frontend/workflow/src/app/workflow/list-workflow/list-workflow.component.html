@@ -1,5 +1,5 @@
-<app-nav-bar-admin></app-nav-bar-admin>
-
+<app-nav-bar-admin *ngIf="user.role != 'super admin'"></app-nav-bar-admin>
+<app-sidebar *ngIf="user.role != 'admin'"></app-sidebar>
 <div class="row" style="margin: 1%;">
     <div class="col-md-3">
     <div class="d-flex justify-content-around">
@@ -9,8 +9,17 @@
     </div>
     </div>
 </div>
-    <div class="row" style="margin: 1%;">
-        <div class="col-md-3 ">
+<div class="d-flex flex-row-reverse bd-highlight">
+<div class="row">
+    <form>
+      <div class="form-group">
+        <input type="text" class="form-control"[(ngModel)]="term" name="term" placeholder="Search">
+      </div>
+    </form>
+  </div>
+</div>
+    <div class="row" style="margin: 1%;" >
+        <div class="col-md-3 "*ngFor="let Wo of workflow |filter:term;">
 
             <div class="card border-primary mb-3" style="max-width: 18rem;">
                 <div class="dropdown mr-1" >
@@ -26,7 +35,7 @@
                   </div>
                 <div class="card-body text-primary" style="margin-top: -12%;">
                   <h5 class="card-title"><img src="../assets/img/work.png" class="img-couvertur" alt=""></h5>
-                  <p class="card-text">Employée confermation</p>
+                  <p class="card-text">{{Wo.Name}}</p>
                 </div>
         </div>
         </div>

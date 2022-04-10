@@ -15,12 +15,16 @@ export class NarEntrepriseComponent implements OnInit {
   token :any;
   data :any;
   entreprise :any;
+  
   ngOnInit(): void {
     this.token = localStorage.getItem('token');
     this.data = jwtDecode(this.token);
     this.entreprise = this.data.user;
-    console.log(this.entreprise);
+   
   }
+
+ 
+  
 
   logout(){
     localStorage.removeItem('token');
