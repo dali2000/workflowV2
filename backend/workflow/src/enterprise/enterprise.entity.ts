@@ -1,7 +1,9 @@
 /* eslint-disable prettier/prettier */
 
 
-import { Entity, Column, PrimaryGeneratedColumn, PrimaryColumn } from 'typeorm';
+import { IsEmail, IsNotEmpty } from 'class-validator';
+import { User } from 'src/user/user.entity';
+import { Entity, Column, PrimaryGeneratedColumn, PrimaryColumn, OneToMany, JoinTable, JoinColumn } from 'typeorm';
 
 @Entity()
 export class Enterprise {
@@ -9,28 +11,37 @@ export class Enterprise {
   id: number;
 
   @Column()
-
+  @IsNotEmpty()
   Name: string;
 
   @Column() 
   location: string;
   
   @Column({unique: true})
-  
+  @IsEmail()
   Email: string;
 
 
 
   @Column()
+  @IsNotEmpty()
   password: string;
 
   @Column({ default: true })
   isActive: boolean;
 
   @Column()
+  @IsNotEmpty()
   dateDeb: Date;
   @Column()
+  @IsNotEmpty()
   dateFin: Date;
+
+
+  // @OneToMany(()=>User,user=>user.id)
+  
+  // @JoinTable()
+  // users:User[]
 }
 
 function Primary() {
