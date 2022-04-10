@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import jwtDecode from 'jwt-decode';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Component({
   selector: 'app-list-admin',
@@ -11,7 +12,8 @@ import jwtDecode from 'jwt-decode';
 export class ListAdminComponent implements OnInit {
 
   constructor(private http: HttpClient, private router: Router) { }
-
+  term: any;
+ 
   admins:any;
   data:any
   token:any
