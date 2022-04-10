@@ -49,8 +49,16 @@ export class WorkflowController {
         return this.WorkflowService.update(id, data);
         
     }
+
+    
+
+
+    
+    
+
         
     @Delete('deleteWorkflow/:id')    // http://localhost:3000/workflow/deleteWorkflow/1
+
     async deleteWorkflow(@Param('id') id:string,@Res () res: Response){
         {   
             const workflow = await this.WorkflowService.destroyWorkflow(id);
