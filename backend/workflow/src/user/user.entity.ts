@@ -2,10 +2,12 @@
 
 
 import { Enterprise } from 'src/enterprise/enterprise.entity';
+import { UserRoleEnum } from 'src/enums/UserRoleEnum';
+import { TimestampEntity } from 'src/Generaics/timestamp.entities';
 import { Entity, Column, PrimaryGeneratedColumn, PrimaryColumn, ManyToMany, ManyToOne } from 'typeorm';
 
 @Entity()
-export class User {
+export class User extends TimestampEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -19,7 +21,10 @@ export class User {
   @Column({unique: true})
   Email: string;
 
-  @Column()
+  @Column({
+    type: 'enum',
+    enum:UserRoleEnum,
+  default:UserRoleEnum.User})
   role: string;
 
   @Column()

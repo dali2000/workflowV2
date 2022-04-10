@@ -65,10 +65,14 @@ export class AddEntrepriseComponent implements OnInit {
     dateDeb: '',
     dateFin: '',
     Cpassword: '',
+    nbjour:'',
   }
+
+  dateDeb:any
+  dateFin :any
+  nb:any
   AddEntreprise() {
     // verif des champs
-
     if (this.form.Email == "") {
       this.message = "Email is required"
       this.test2 = true
@@ -147,7 +151,12 @@ export class AddEntrepriseComponent implements OnInit {
     else {
       console.log("error")
     }
-
+    this.dateDeb=new Date(this.form.dateDeb).getTime()
+    this.dateFin=new Date(this.form.dateFin).getTime()
+    this.nb=(this.dateFin-this.dateDeb)/(1000*60*60*24)
+    this.form.nbjour=this.nb
   }
+ 
+  
 }
 

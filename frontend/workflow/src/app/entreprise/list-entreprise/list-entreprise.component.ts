@@ -14,6 +14,10 @@ export class ListEntrepriseComponent implements OnInit {
   data:any
   token:any
   user:any
+<<<<<<< HEAD
+  term: any;
+=======
+>>>>>>> 55d8c613bf84d3ef6c8ecf78c8db7dcad883d3fb
 
   datedebut:any
   datefin:any

@@ -2,11 +2,12 @@
 
 
 import { IsEmail, IsNotEmpty } from 'class-validator';
+import { TimestampEntity } from 'src/Generaics/timestamp.entities';
 import { User } from 'src/user/user.entity';
 import { Entity, Column, PrimaryGeneratedColumn, PrimaryColumn, OneToMany, JoinTable, JoinColumn } from 'typeorm';
 
 @Entity()
-export class Enterprise {
+export class Enterprise extends TimestampEntity  {
   @PrimaryGeneratedColumn()
   id: number;
 
