@@ -65,7 +65,7 @@ export class AddEntrepriseComponent implements OnInit {
     dateDeb: '',
     dateFin: '',
     Cpassword: '',
-    nbjour:'',
+    nbJour:'',
   }
 
   dateDeb:any
@@ -130,6 +130,11 @@ export class AddEntrepriseComponent implements OnInit {
       this.messagedate = "";
       this.testdate = false;
     }
+    this.dateDeb=new Date(this.form.dateDeb).getTime()
+    this.dateFin=new Date(this.form.dateFin).getTime()
+    this.nb=(this.dateFin-this.dateDeb)/(1000*60*60*24)
+    this.form.nbJour=this.nb
+
     if (this.testdate == false && this.test1 == false && this.test2 == false && this.test3 == false && this.test4 == false) {
       this.http.post('http://localhost:3000/Enterprise/addEnterprise', this.form).subscribe(res => {
         console.log(res)
@@ -151,12 +156,9 @@ export class AddEntrepriseComponent implements OnInit {
     else {
       console.log("error")
     }
-    this.dateDeb=new Date(this.form.dateDeb).getTime()
-    this.dateFin=new Date(this.form.dateFin).getTime()
-    this.nb=(this.dateFin-this.dateDeb)/(1000*60*60*24)
-    this.form.nbjour=this.nb
+
   }
- 
-  
+
+
 }
 
