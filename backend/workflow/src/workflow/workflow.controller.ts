@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Body, Controller, Delete, Get, Param, Post, Put, Res } from '@nestjs/common';
 import { workflowDTO } from './workflow.dto';
 import { WorkflowService } from './workflow.service';
@@ -8,12 +9,12 @@ export class WorkflowController {
 
     constructor(private WorkflowService: WorkflowService) { }
 
-    @Get('workflows')
+    @Get('workflows')// http://localhost:3000/workflow/workflows
     getWorkflows() {
         return this.WorkflowService.showAll();
     }
 
-    @Post('addWorkflow')         // http://localhost:3000/user
+    @Post('addWorkflow')         // http://localhost:3000/workflow/addWorkflow
     async addWorkflow(@Body() data: workflowDTO, @Res() res: Response) {
 
         const workflow = await this.WorkflowService.create(data);
@@ -36,7 +37,7 @@ export class WorkflowController {
         return res;
     }
 
-    @Get('getWorkflow/:id')       // http://localhost:3000/user/getUser/1
+    @Get('getWorkflow/:id')       //http://localhost:3000/workflow/getWorkflow/1
     getWorkflow(@Param('id') id:string){
         return this.WorkflowService.showOne(id);
     }
@@ -48,11 +49,16 @@ export class WorkflowController {
         return this.WorkflowService.update(id, data);
         
     }
+
     
 
 
     
-    @Delete('deleteWorkflow/:id')    // http://localhost:3000/user/deleteUser/1
+    
+
+        
+    @Delete('deleteWorkflow/:id')    // http://localhost:3000/workflow/deleteWorkflow/1
+
     async deleteWorkflow(@Param('id') id:string,@Res () res: Response){
         {   
             const workflow = await this.WorkflowService.destroyWorkflow(id);

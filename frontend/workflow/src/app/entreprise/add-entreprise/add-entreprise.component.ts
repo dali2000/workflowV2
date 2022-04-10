@@ -24,6 +24,8 @@ export class AddEntrepriseComponent implements OnInit {
     data:any
     token:any
     user:any
+    d:any
+    f:any
   constructor(private http: HttpClient, private router: Router,private datePipe:DatePipe) { }
   ngOnInit(): void {
     this.token = localStorage.getItem('token');
@@ -41,7 +43,10 @@ export class AddEntrepriseComponent implements OnInit {
 this.dateSysteme=this.datePipe.transform(this.Mydtae, 'yyyy-dd-MM');
 this.messagedate=""
 
-  }
+
+  
+}
+
 
 
   message = ""
