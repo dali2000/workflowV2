@@ -1,10 +1,11 @@
 /* eslint-disable prettier/prettier */
 
 
-import { Entity, Column, PrimaryGeneratedColumn, PrimaryColumn } from 'typeorm';
+import { TimestampEntity } from 'src/Generaics/timestamp.entities';
+import { Entity, Column, PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity()
-export class Workflow {
+export class Workflow extends TimestampEntity {
     @PrimaryGeneratedColumn()
     id: number;
     @Column()

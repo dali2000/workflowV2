@@ -1,10 +1,14 @@
 /* eslint-disable prettier/prettier */
 
 
-import { Entity, Column, PrimaryGeneratedColumn, PrimaryColumn } from 'typeorm';
+import { type } from 'os';
+import { Enterprise } from 'src/enterprise/enterprise.entity';
+import { UserRoleEnum } from 'src/enums/UserRoleEnum';
+import { TimestampEntity } from 'src/Generaics/timestamp.entities';
+import { Entity, Column, PrimaryGeneratedColumn, PrimaryColumn, OneToOne, OneToMany, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
 @Entity()
-export class User {
+export class User extends TimestampEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -18,7 +22,10 @@ export class User {
   @Column({unique: true})
   Email: string;
 
-  @Column()
+  @Column({
+    type: 'enum',
+    enum:UserRoleEnum,
+  default:UserRoleEnum.User})
   role: string;
 
   @Column()
@@ -32,6 +39,7 @@ export class User {
 
   @Column({ default: true })
   isActive: boolean;
+
 }
 
 function Primary() {

@@ -20,9 +20,18 @@
           Add Entreprise</button>
       </div>
     </div>
-
+    <div class="d-flex flex-row-reverse bd-highlight">
+      <div class="row">
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" [(ngModel)]="term"
+              name="term" placeholder="Search">
+          </div>
+        </form>
+      </div>
+    </div>
     <div class="row">
-      <div class="col-md-3" *ngFor="let En of Entreprises;">
+      <div class="col-md-3" *ngFor="let En of Entreprises |filter:term">
 
         <div class="card">
           <div class="dropdown mr-1">

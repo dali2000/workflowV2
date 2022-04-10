@@ -14,7 +14,8 @@ export class ListEntrepriseComponent implements OnInit {
   data:any
   token:any
   user:any
-  
+  term: any;
+
   datedebut:any
   datefin:any
   ngOnInit(): void {

@@ -1,10 +1,13 @@
 /* eslint-disable prettier/prettier */
 
 
-import { Entity, Column, PrimaryGeneratedColumn, PrimaryColumn } from 'typeorm';
+import { type } from 'os';
+import { TimestampEntity } from 'src/Generaics/timestamp.entities';
+import { User } from 'src/user/user.entity';
+import { Entity, Column, PrimaryGeneratedColumn, PrimaryColumn, OneToOne, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
 
 @Entity()
-export class Enterprise {
+export class Enterprise extends TimestampEntity  {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -31,6 +34,7 @@ export class Enterprise {
   dateDeb: Date;
   @Column()
   dateFin: Date;
+
 }
 
 function Primary() {
