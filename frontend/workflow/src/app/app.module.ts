@@ -93,21 +93,28 @@ const routes: Routes = [
 
 ]},
 
+//dashbord entreprise
+{ path: 'homeentreprise', component: HomeEntrepriseComponent,children:[
+  { path: 'group', component: GroupuserComponent },
 
+]},
+
+//dashbord user
+// { path: 'homeuser', component: UserProfilComponent,children:[
+//   { path: 'profil', component: ProfilComponent },
+
+// ]},
 
 
   { path: 'profil-entreprise/:id', component: ProfilEntrepriseComponent },
-
   { path: 'add_employee', component: AddEmployeeComponent },
   { path: 'list_employee', component: ListEmployeeComponent },
-
   { path: 'UserProfil/:id', component: ProfilComponent },
-
   { path: 'Profil/:id', component: UserProfilComponent },
 
 
-
-];  // <-- import RouterModule and define routes
+];
+  // <-- import RouterModule and define routes
 
 @NgModule({
   declarations: [
