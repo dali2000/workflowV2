@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import { BadRequestException, Body, Controller, Delete, Get, Param, Post, Put, Res, UnauthorizedException } from '@nestjs/common';
 
 import * as bcrypt  from 'bcrypt';
@@ -42,7 +42,9 @@ export class GroupController {
 
     //     return res;
     // }
-    @Get('getGroups/:id')       // http://localhost:3000/group/getGroups/1
+
+    @Get('getGroups/:id')       // http://localhost:3000/group/getGroup/1
+
     getGroups(@Param('id') id: string) {
         return this.GroupService.showByIdEnterprise(id);
     }
