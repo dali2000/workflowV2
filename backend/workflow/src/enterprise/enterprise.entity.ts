@@ -45,6 +45,10 @@ export class Enterprise extends TimestampEntity  {
   @OneToMany(()=>Group,group=>group.id)
   @JoinTable()
   group:Group[]
+
+  @OneToMany(()=>User,user=>user.id)
+  @JoinTable()
+  user:User[]
 }
 
 function Primary() {

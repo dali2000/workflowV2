@@ -2,12 +2,12 @@
 import { BadRequestException, Body, Controller, Delete, Get, Param, Post, Put, Res, UnauthorizedException } from '@nestjs/common';
 import { enterpriseDTO } from './enterprise.dto';
 import { EnterpriseService } from './enterprise.service';
-import * as bcrypt  from 'bcrypt';
+import * as bcrypt from 'bcrypt';
 import { Response } from 'express';
 import { JwtService } from '@nestjs/jwt/dist/jwt.service';
 @Controller('enterprise')
 export class EnterpriseController {
-    constructor(private EnterpriseService: EnterpriseService,private jwtService: JwtService) {
+    constructor(private EnterpriseService: EnterpriseService, private jwtService: JwtService) {
 
     }
     @Get('Enterprise')  // http://localhost:3000/Enterprise
@@ -55,7 +55,7 @@ export class EnterpriseController {
         return this.EnterpriseService.showOneByEmail(data.Email);
     }
     @Put('updateUser/:id')      // http://localhost:3000/user/updateUser/1
-    updateUser(@Param('id') id:string, @Body() data:Partial<enterpriseDTO>){
+    updateUser(@Param('id') id: string, @Body() data: Partial<enterpriseDTO>) {
         return this.EnterpriseService.update(id, data);
     }
     @Delete('deleteEnterprise/:id')    // http://localhost:3000/user/deleteUser/1
@@ -64,7 +64,7 @@ export class EnterpriseController {
             this.EnterpriseService.destroy(id);
             if (this.EnterpriseService.destroy(id)) {
                 res.status(200);
-                res.json({  
+                res.json({
                     status: '200',
                     message: 'User Deleted'
                 });
@@ -87,39 +87,40 @@ export class EnterpriseController {
     async login(@Body() data: enterpriseDTO, @Res({ passthrough: true }) res: Response) {
         const user = await this.EnterpriseService.showOneByEmail(data.Email);
 
-        if(new Date()>user.dateFin){
-        
-        this.updateUser(user.id.toString(),{isActive:false});
-        this.updateUser(user.id.toString(),{nbJour:'0'});
+        if (new Date() > user.dateFin) {
 
-                        }
-else{
-    
-    // console.log(user.isActive);
-    // console.log(new Date()==user.dateFin)
-    if (!user || (!await bcrypt.compare(data.password, user.password))) {
-        throw new UnauthorizedException('Invalid creadentials');
-    }
-    else {
+            this.updateUser(user.id.toString(), { isActive: false });
+            this.updateUser(user.id.toString(), { nbJour: '0' });
 
-        if(user.isActive==true){
-        const jwt = await this.jwtService.sign({ user: user });
-        
-
-        return {
-            jwt
-        };}
-        else{
-            throw new UnauthorizedException('User is not active');
         }
+        else {
 
+            // console.log(user.isActive);
+             console.log(new Date()==user.dateFin)
+            if (!user || (!await bcrypt.compare(data.password, user.password))) {
+                throw new UnauthorizedException('Invalid creadentials');
+            }
+            else {
+
+                if (user.isActive == true) {
+                    const jwt = await this.jwtService.sign({ user: user });
+
+
+                    return {
+                        jwt
+                    };
+                }
+                else {
+                    throw new UnauthorizedException('User is not active');
+                }
+
+            }
+
+
+        }
     }
 
-    
-}
-}
-      
 
-   
-     
+
+
 }
