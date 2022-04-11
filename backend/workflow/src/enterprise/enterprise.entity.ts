@@ -3,6 +3,7 @@
 
 import { IsEmail, IsNotEmpty } from 'class-validator';
 import { TimestampEntity } from 'src/Generaics/timestamp.entities';
+import { Group } from 'src/group/group.entity';
 import { User } from 'src/user/user.entity';
 import { Entity, Column, PrimaryGeneratedColumn, PrimaryColumn, OneToMany, JoinTable, JoinColumn } from 'typeorm';
 
@@ -41,10 +42,9 @@ export class Enterprise extends TimestampEntity  {
   dateFin: Date;
 
 
-  // @OneToMany(()=>User,user=>user.id)
-  
-  // @JoinTable()
-  // users:User[]
+  @OneToMany(()=>Group,group=>group.id)
+  @JoinTable()
+  group:Group[]
 }
 
 function Primary() {
