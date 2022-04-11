@@ -12,10 +12,14 @@ import { WorkflowController } from './workflow/workflow.controller';
 
 import { WorkflowModule } from './workflow/workflow.module';
 import { Workflow } from './workflow/workflow.entity';
+import { GroupController } from './group/group.controller';
+import { GroupService } from './group/group.service';
+import { GroupModule } from './group/group.module';
+import { Group } from './group/group.entity';
 
 
 @Module({
-  imports: [UserModule,EnterpriseModule,WorkflowModule,
+  imports: [UserModule,EnterpriseModule,WorkflowModule,GroupModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
@@ -23,7 +27,7 @@ import { Workflow } from './workflow/workflow.entity';
       username: 'root',
       password: '',
       database: 'workflow',
-      entities:[User,Enterprise,Workflow],
+      entities:[User,Enterprise,Workflow,Group],
       synchronize: true,
       
       logging: false
@@ -34,6 +38,7 @@ import { Workflow } from './workflow/workflow.entity';
     }),
     EnterpriseModule,
     WorkflowModule,
+    GroupModule,
    
   ],
   controllers: [AppController],
