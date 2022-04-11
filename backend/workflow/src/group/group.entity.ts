@@ -20,8 +20,9 @@ export class Group extends TimestampEntity {
   Description: string;
 
   
-  @Column()
+  @Column({default:null})
   enterpriseId:number
+  
   @ManyToOne(()=>Enterprise,enterprise =>enterprise.id)
   enterprise:Enterprise
   
