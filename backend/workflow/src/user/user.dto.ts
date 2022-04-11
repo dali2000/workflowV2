@@ -7,7 +7,7 @@ export interface userDTO{
     password: string;
     location: string;
     phoneNumber: string;
-    
+    groupId:number;
     isActive: boolean;
     
  

@@ -54,6 +54,12 @@ export class UserController {
     getUser(@Param('id') id:string){
         return this.UserService.showOne(id);
     }
+
+    @Get('getByGroup/:groupId')
+    getByGroup(@Param('groupId') groupId:number){
+        return this.UserService.showByGroup(groupId)
+    }
+
     @Get('getUserEmail')       // http://localhost:3000/user/getUser/1
     getUserByEmail(@Body() data:userDTO){
         return this.UserService.showOneByEmail(data.Email);

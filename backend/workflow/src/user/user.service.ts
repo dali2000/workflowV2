@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { QueryBuilder, Repository } from 'typeorm';
 import { userDTO } from './user.dto';
 import { User } from './user.entity';
 
@@ -22,6 +22,13 @@ export class UserService {
     async showOneByEmail(Email: string){
         return await this.userRepository.findOne({where: {Email}});
     }
+
+    async showByGroup(groupId:number){
+        return await this.userRepository.find({where: {groupId}})
+    //     const qb = this.userRepository.createQueryBuilder("user")
+    //    return await qb.select("*").groupBy("user.groupId")
+    }
+
     async showAdmins(role: string){
         return await this.userRepository.find({where: {role}});
     }
