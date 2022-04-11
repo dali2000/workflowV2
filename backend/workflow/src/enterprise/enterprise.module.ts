@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -16,4 +17,7 @@ import { EnterpriseService } from './enterprise.service';
   exports: [],
   providers: [EnterpriseService]
 })
-export class EnterpriseModule {}
+export class EnterpriseModule {
+
+  
+}

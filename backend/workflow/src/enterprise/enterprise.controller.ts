@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { BadRequestException, Body, Controller, Delete, Get, Param, Post, Put, Res, UnauthorizedException } from '@nestjs/common';
 import { enterpriseDTO } from './enterprise.dto';
 import { EnterpriseService } from './enterprise.service';
@@ -81,22 +82,44 @@ export class EnterpriseController {
 
         }
     }
+
     @Post('login')
     async login(@Body() data: enterpriseDTO, @Res({ passthrough: true }) res: Response) {
         const user = await this.EnterpriseService.showOneByEmail(data.Email);
 
-        if (!user || (!await bcrypt.compare(data.password, user.password))) {
-            throw new UnauthorizedException('Invalid creadentials');
-        }
+        if(new Date()>user.dateFin){
+        
+        this.updateUser(user.id.toString(),{isActive:false});
+        this.updateUser(user.id.toString(),{nbJour:'0'});
+
+                        }
+else{
+    
+    // console.log(user.isActive);
+    // console.log(new Date()==user.dateFin)
+    if (!user || (!await bcrypt.compare(data.password, user.password))) {
+        throw new UnauthorizedException('Invalid creadentials');
+    }
+    else {
+
+        if(user.isActive==true){
+        const jwt = await this.jwtService.sign({ user: user });
+        
+
+        return {
+            jwt
+        };}
         else{
-            const jwt = await this.jwtService.sign({ user: user });
-            
-            return {
-                jwt
-            };
+            throw new UnauthorizedException('User is not active');
         }
 
-        
     }
 
+    
+}
+}
+      
+
+   
+     
 }

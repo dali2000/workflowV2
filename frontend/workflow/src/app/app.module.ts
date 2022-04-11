@@ -46,6 +46,7 @@ import { WorkflowComponent } from './Dashbordadmin/workflow/workflow.component';
 import { PagestatestiqueadminComponent } from './Dashbordadmin/pagestatestiqueadmin/pagestatestiqueadmin.component';
 import { ListWorkflowComponent } from './workflow/list-workflow/list-workflow.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { GroupuserComponent } from './entreprise/groupuser/groupuser.component';
 
 
 
@@ -147,6 +148,7 @@ const routes: Routes = [
     WorkflowComponent,
     PagestatestiqueadminComponent,
     ListWorkflowComponent,
+    GroupuserComponent,
 
 
 

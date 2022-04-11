@@ -7,6 +7,9 @@ import { Enterprise } from './enterprise.entity';
 
 @Injectable()
 export class EnterpriseService {
+  static showAll() {
+    throw new Error('Method not implemented.');
+  }
     constructor(
         @InjectRepository(Enterprise)
         private EnterpriseRepository: Repository<Enterprise>,
@@ -33,11 +36,14 @@ export class EnterpriseService {
         await this.EnterpriseRepository.update(id, data);
         return this.EnterpriseRepository.findOne(id);
     }
-    async destroy(id: string){
+     async destroy(id: string){
         await this.EnterpriseRepository.delete(id);
         return {deleted: true};
     }
 
-
+    async testabonnement() {
+        return await this.showAll() ;
+        
+       }
     
 }
