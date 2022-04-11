@@ -42,7 +42,8 @@ export class User extends TimestampEntity {
   isActive: boolean;
 
   
-
+  @Column({default:null})
+  groupId:number
   @ManyToOne(()=>Group,group =>group.id)
   group:Group
 
