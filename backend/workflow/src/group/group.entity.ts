@@ -7,41 +7,22 @@ import { TimestampEntity } from 'src/Generaics/timestamp.entities';
 import { Entity, Column, PrimaryGeneratedColumn, PrimaryColumn, ManyToMany, ManyToOne } from 'typeorm';
 
 @Entity()
-export class User extends TimestampEntity {
+export class Group extends TimestampEntity {
+
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-
-  firstName: string;
-
-  @Column()
-  lastName: string;
-
-  @Column({ unique: true })
-  Email: string;
-
-  @Column({
-    type: 'enum',
-    enum: UserRoleEnum,
-    default: UserRoleEnum.User
-  })
-  role: string;
+  Name: string;
 
   @Column()
-  password: string;
+  Description: string;
 
+  
   @Column()
-  location: string;
-
-  @Column()
-  phoneNumber: string;
-
-  @Column({ default: true })
-  isActive: boolean;
-
-  // @ManyToOne(()=>Enterprise,enterprise =>enterprise.id)
-  // enterprise:Enterprise
+  enterpriseId:number
+  @ManyToOne(()=>Enterprise,enterprise =>enterprise.id)
+  enterprise:Enterprise
 
 }
 
