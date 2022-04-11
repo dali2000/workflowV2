@@ -4,6 +4,7 @@
 import { Enterprise } from 'src/enterprise/enterprise.entity';
 import { UserRoleEnum } from 'src/enums/UserRoleEnum';
 import { TimestampEntity } from 'src/Generaics/timestamp.entities';
+import { Group } from 'src/group/group.entity';
 import { Entity, Column, PrimaryGeneratedColumn, PrimaryColumn, ManyToMany, ManyToOne } from 'typeorm';
 
 @Entity()
@@ -37,11 +38,13 @@ export class User extends TimestampEntity {
   @Column()
   phoneNumber: string;
 
-  @Column({ default: true })
+  @Column ({ default: true})
   isActive: boolean;
 
-  // @ManyToOne(()=>Enterprise,enterprise =>enterprise.id)
-  // enterprise:Enterprise
+  
+
+  @ManyToOne(()=>Group,group =>group.id)
+  group:Group
 
 }
 

@@ -9,11 +9,11 @@ import jwtDecode from 'jwt-decode';
   styleUrls: ['./groupuser.component.css']
 })
 export class GroupuserComponent implements OnInit {
-  term:any;
-  token :any;
-  data :any;
-  entreprise :any;
-  group:any
+  term: any;
+  token: any;
+  data: any;
+  entreprise: any;
+  group: any
   response: any;
   check = true
 
@@ -21,52 +21,65 @@ export class GroupuserComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.token= localStorage.getItem('token');
+    this.token = localStorage.getItem('token');
     this.data = jwtDecode(this.token);
     this.entreprise = this.data.user;
-   console.log(this.entreprise.id);
+    console.log(this.entreprise.id);
     this.getGroup();
-    
+
   }
-  
 
 
-  groups={
-    Name:'',
-    Description:'',
-    EnterpriseId:'',
+
+  groups = {
+    Name: '',
+    Description: '',
+    enterpriseId: '',
   }
-  
-  getGroup(){
-    
-    this.http.get('http://localhost:3000/group/getGroups/'+this.entreprise.id).subscribe(res=>{
+
+  getGroup() {
+
+    this.http.get('http://localhost:3000/group/getGroups/' + this.entreprise.id).subscribe(res => {
       console.log(res);
-      this.group= res
-    
+      this.group = res
 
-    
+
+
     });
   }
 
-  addGroup(){
-    this.groups.EnterpriseId=this.entreprise.id;
+  addGroup() {
+
+
+    this.groups.enterpriseId = this.entreprise.id;
+    this.http.post('http://localhost:3000/group/addGroup', this.groups).subscribe(res => {
+      console.log(res)
+      this.response = res
+      console.log(this.response.status)
+      if (this.response.status == 200) {
+        this.check = false
+
+
+      }
+      if (this.response.status != 200) {
+        this.check = true
+
+
+      }
+
+    });
     console.log(this.groups);
-   this.http.post('http://localhost:3000/group/addGroup',this.groups).subscribe(res => {
-       console.log(res)
-       this.response = res
-        console.log(this.response.status)
-        if (this.response.status == 200) {
-          this.check = false
 
-
-        }
-        if (this.response.status != 200) {
-          this.check = true
-
-
-        }
-
-      });
   }
 
+  deleteGroup(id: any) {
+    this.http.delete("http://localhost:3000/group/deleteGroup/" + id).subscribe(res => {
+      console.log(res)
+    })
+    this.ngOnInit()
+    console.log(id)
+  }
+
+
 }
+
