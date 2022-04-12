@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { User } from './user/user.entity';
+import { Task } from './task/task.entity';
 import { UserModule } from './user/user.module';
 import { EnterpriseModule } from './enterprise/enterprise.module';
 import { Enterprise } from './enterprise/enterprise.entity';
@@ -16,10 +17,12 @@ import { GroupController } from './group/group.controller';
 import { GroupService } from './group/group.service';
 import { GroupModule } from './group/group.module';
 import { Group } from './group/group.entity';
+import { TaskService } from './task/task.service';
+import { TaskModule } from './task/task.module';
 
 
 @Module({
-  imports: [UserModule,EnterpriseModule,WorkflowModule,GroupModule,
+  imports: [UserModule,EnterpriseModule,WorkflowModule,GroupModule,TaskModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
@@ -27,7 +30,7 @@ import { Group } from './group/group.entity';
       username: 'root',
       password: '',
       database: 'workflow',
-      entities:[User,Enterprise,Workflow,Group],
+      entities:[User,Enterprise,Workflow,Group,Task],
       synchronize: true,
       
       logging: false
@@ -39,6 +42,7 @@ import { Group } from './group/group.entity';
     EnterpriseModule,
     WorkflowModule,
     GroupModule,
+    TaskModule,
    
   ],
   controllers: [AppController],
