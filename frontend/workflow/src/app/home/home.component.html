@@ -1,4 +1,5 @@
-<app-nar-entreprise></app-nar-entreprise>
+<app-nar-entreprise *ngIf="test"></app-nar-entreprise>
+<app-user-nav *ngIf="!test"></app-user-nav>
 <div class="container-fluid">
     <br>
     <div class="row">
@@ -95,32 +96,18 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">label</th>
-                    <th scope="col">workflow name</th>
+                    <!-- <th scope="col">workflow name</th> -->
                     <th scope="col">created at</th>
                     <th scope="col">due date</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td>@mdo</td>
+                <tr *ngFor="let task of tasks">
+                    <th scope="row">{{task.id}}</th>
+                    <td>{{task.Name}}</td>
+                    <!-- <td>Otto</td> -->
+                    <td>{{task.createdAt}}</td>
+                    <td>{{task.dueDate | date }}</td>
                 </tr>
             </tbody>
         </table>

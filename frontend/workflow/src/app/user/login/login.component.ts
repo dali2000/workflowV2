@@ -51,6 +51,9 @@ export class LoginComponent implements OnInit {
       if ((this.user1.role == 'super admin')) {
         this.router.navigate(['/homeSuperadmin/statestique'])
       }
+      else if(this.user1.role == "user"){
+        this.router.navigate(['/Home'])
+      }
       else {
         this.router.navigate(['/homeadmin'])
       }
