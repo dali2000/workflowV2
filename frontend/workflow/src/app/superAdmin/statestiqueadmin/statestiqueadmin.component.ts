@@ -1,4 +1,6 @@
+
 import { Component, OnInit } from '@angular/core';
+
 import { Chart, registerables} from 'chart.js';
 
 ;
@@ -10,10 +12,11 @@ import { Chart, registerables} from 'chart.js';
 })
 export class StatestiqueadminComponent implements OnInit {
 
-  constructor() { Chart.register(...registerables)}
-
+  constructor( ) { Chart.register(...registerables)}
+  
+ 
   ngOnInit(): void {
-    
+   
 
     const myChart = new Chart("myChartadmin", {
       type: 'bar',
@@ -50,5 +53,7 @@ export class StatestiqueadminComponent implements OnInit {
       }
   });
   }
+  
 
+  
 }

@@ -18,11 +18,8 @@ export class ListAdminComponent implements OnInit {
   data:any
   token:any
   user:any
-  role="admin"
-  list :any=[];
-  j = 0;
   ngOnInit(): void {
-    this.list = []
+    
     this.token = localStorage.getItem('token');
     this.data = jwtDecode(this.token);
     this.user = this.data.user;
@@ -33,7 +30,7 @@ export class ListAdminComponent implements OnInit {
 
   getAllAdmin() {
 
-    this.list = []
+    
     this.http.get('http://localhost:3000/user/getAdmins/admin').subscribe(res => {
       console.log(res)
       this.admins = res

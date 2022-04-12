@@ -1,97 +1,99 @@
-
-
-        
-    
-    <div class="box">
-        <div class="d-flex justify-content-between">
-            <div class="d-flex justify-content-start"> <h3>Add Admin</h3></div>
-        <div class="d-flex justify-content-end"> <button id="btn" class="btn btn-outline-primary" routerLink="/homeSuperadmin/liste_admin"><i class='bx bx-list-ul'></i>
-            Liste Admin</button></div>
+<div class="box">
+    <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-start">
+            <h3>Add Admin</h3>
         </div>
-        
-        <!-- linge 1 -->
-        <div class="row">
-            <div class="col-md-6">
-                <input type="text" placeholder="firstName" name="firstName" [(ngModel)]="Admin.firstName"
-                    [class.test]="test2">
-                    <div class="error">
-                        {{message2}}
-                    </div>
-            </div>
-            <div class="col-md-6">
-                <input type="text" placeholder="lastName" name="lastName" [(ngModel)]="Admin.lastName"
-                    [class.test]="test3">
-                    <div class="error">
-                        {{message3}}
-                    </div>
+        <div class="d-flex justify-content-end"> <button id="btn" class="btn btn-outline-primary"
+                routerLink="/homeSuperadmin/liste_admin"><i class='bx bx-list-ul'></i>
+                Liste Admin</button></div>
+    </div>
+
+    <!-- linge 1 -->
+    <div class="row">
+        <div class="col-md-6">
+            <input type="text" placeholder="firstName" name="firstName" [(ngModel)]="Admin.firstName"
+                [class.test]="test2">
+            <div class="error">
+                {{message2}}
             </div>
         </div>
-       
-                <!-- linge 2 -->
+        <div class="col-md-6">
+            <input type="text" placeholder="lastName" name="lastName" [(ngModel)]="Admin.lastName" [class.test]="test3">
+            <div class="error">
+                {{message3}}
+            </div>
+        </div>
+    </div>
 
-        <div class="row">
-            <div class="col-md-6">
-                <input type="email" placeholder="Email" name="email" [(ngModel)]="Admin.Email" [class.test]="test1">
-                <div class="error">
-                    {{message}}
+    <!-- linge 2 -->
+
+    <div class="row">
+        <div class="col-md-6">
+            <input type="email" placeholder="Email" name="email" [(ngModel)]="Admin.Email" [class.test]="test1">
+            <div class="error">
+                {{message}}
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <input type="text" placeholder="phoneNumber" name="phoneNumber" [(ngModel)]="Admin.phoneNumber"
+                [class.test1]="test5">
+            <div class="error">
+                {{message6}}
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- linge 3 -->
+    <div class="row">
+        <div class="col-md-6">
+            <input type="password" placeholder="Password" name="password" [(ngModel)]="Admin.password"
+                [class.test1]="test1">
+            <div class="error">
+                {{message1}}
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <input [type]="passwordtype" placeholder="Confirme Password" name="CPassword"
+                        [(ngModel)]="CPassword" [class.test1]="test4">
+                </div>
+                <div  class="icon">
+                    <i class='bx bx-low-vision' (click)="changepass()" [hidden]="passwordshow"></i>
+                    <i class='bx bx-show' (click)="changepass()" [hidden]="!passwordshow"></i>
+                    
                 </div>
             </div>
 
-            <div class="col-md-6">
-                <input type="text" placeholder="phoneNumber" name="phoneNumber" [(ngModel)]="Admin.phoneNumber"
-                    [class.test1]="test1">
-                    <div class="error">
-                        {{message1}}
-                    </div>
-            </div>
-
-        </div>
-        
-
- <!-- linge 3 -->
-        <div class="row">
-            <div class="col-md-6">
-                <input type="password" placeholder="Password" name="password" [(ngModel)]="Admin.password"
-                    [class.test1]="test1">
-                    <div class="error">
-                        {{message1}}
-                    </div>
-            </div>
-            <div class="col-md-6">
-                <input type="text" placeholder="Confirme Password" name="CPassword" [(ngModel)]="CPassword"
-                    [class.test1]="test4">
-                    <div class="error">
-                        {{message4}}
-                    </div>
+            <div class="error">
+                {{message4}}
             </div>
         </div>
-        
+    </div>
 
-
-        
-            
-       
-        
-        
-        <div class="row">
-            <div class="col-md-12">
-                <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="Admin.role">
-                    <option value="admin">admin</option>
-                    <option value="user">user</option>
-                </select>
-            </div>
+    <div class="row">
+        <div class="col-md-12">
+            <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="Admin.role">
+                <option value="admin">admin</option>
+                <option value="user">user</option>
+            </select>
         </div>
+    </div>
 
-        <br>
 
-        <div class="row">
-            <div class="col-md-12">
-                <button class="btn btn-primary btn1" (click)="AddAdmin()"  data-toggle="modal"
-                data-target="#exampleModal">
-                    Ajouter
-                </button>
-            </div>
+    <br>
+
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-primary btn1" (click)="AddAdmin()" data-toggle="modal" data-target="#exampleModal">
+                Ajouter
+            </button>
         </div>
+    </div>
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -113,4 +115,4 @@
             </div>
         </div>
     </div>
-    </div>
+</div>
