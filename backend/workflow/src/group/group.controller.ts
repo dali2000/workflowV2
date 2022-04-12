@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 
 import { BadRequestException, Body, Controller, Delete, Get, Param, Post, Put, Res, UnauthorizedException } from '@nestjs/common';
 

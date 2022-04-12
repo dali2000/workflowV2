@@ -57,6 +57,7 @@ export class AddEntrepriseComponent implements OnInit {
   testdate = false
   check = true
   response: any
+  
   form = {
     Email: '',
     password: '',
@@ -64,16 +65,17 @@ export class AddEntrepriseComponent implements OnInit {
     location: '',
     dateDeb: '',
     dateFin: '',
-    Cpassword: '',
     nbJour:'',
   }
+  Cpassword:any
 
   dateDeb:any
   dateFin :any
   nb:any
   AddEntreprise() {
     // verif des champs
-    if (this.form.Email == "") {
+        //Email
+    if ((this.form.Email == "")|| (this.form.Email.indexOf('@') == -1) || (this.form.Email.indexOf('.') == -1)) {
       this.message = "Email is required"
       this.test2 = true
       console.log(this.message)
@@ -82,7 +84,7 @@ export class AddEntrepriseComponent implements OnInit {
       this.message = ""
       this.test2 = false
     }
-
+        //name
     if (this.form.Name == "") {
       this.message3 = "Name is required"
       this.test3 = true
@@ -95,7 +97,7 @@ export class AddEntrepriseComponent implements OnInit {
 
 
 
-
+        //number password
     if (this.form.password == "")  {
       this.message1 = "password is required"
       this.test1 = true
@@ -107,8 +109,8 @@ export class AddEntrepriseComponent implements OnInit {
 
 
     }
-
-    if((this.form.Cpassword == "") || (this.form.Cpassword != this.form.password)) {
+ // confirme password
+    if((this.Cpassword == "") || (this.Cpassword != this.form.password)) {
       this.message4 = "incorrect Password"
       this.test4 = true
       console.log(this.message4)
@@ -118,6 +120,7 @@ export class AddEntrepriseComponent implements OnInit {
       this.message4 = ""
       this.test4 = false
     }
+
     //***************verifie le date*****************
     if ((this.form.dateDeb == "" || this.form.dateFin == "") || (this.dateSysteme >= this.form.dateDeb) || (this.form.dateDeb > this.form.dateFin)) {
       console.log('date debut est inferieur a la date systeme')
@@ -158,7 +161,19 @@ export class AddEntrepriseComponent implements OnInit {
     }
 
   }
-
+  passwordtype:string="password"
+  passwordshow:boolean=false
+  changepass(){
+    if (this.passwordshow) {
+      this.passwordshow=false
+      this.passwordtype="password"
+    }
+    else{
+      this.passwordshow=true
+      this.passwordtype="text"
+    }
+  }
+  
 
 }
 

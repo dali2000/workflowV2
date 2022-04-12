@@ -96,6 +96,13 @@
       text-decoration: none;
      
     }
+    .icon{
+      margin-top: 6%;
+      margin-left:90%;
+      position:absolute;
+     
+    }
+   
     @media screen and (max-width: 414px) {
       .box {
         width: 98%;
