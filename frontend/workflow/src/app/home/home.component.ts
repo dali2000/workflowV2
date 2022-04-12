@@ -17,6 +17,9 @@ export class HomeComponent implements OnInit {
   user :any;
   test=true
   tasks:any;
+
+
+
   ngOnInit(): void {
     this.token = localStorage.getItem('token');
     this.data = jwtDecode(this.token);
@@ -33,5 +36,6 @@ export class HomeComponent implements OnInit {
       this.tasks = res
       console.log(res)
     })
+
   }
 }

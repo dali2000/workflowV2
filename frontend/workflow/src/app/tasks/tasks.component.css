@@ -1,0 +1,18 @@
+.list{
+  background-color:white;
+  border-radius:5px;
+  padding-top: 15px;
+  margin:10px;
+  height: auto;
+
+}
+.task{
+  background-color: rgb(243, 243, 243);
+  padding:10px;
+  margin: auto;
+
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.055);
+  -webkit-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.13);
+  -moz-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.158);
+}
