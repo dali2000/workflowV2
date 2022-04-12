@@ -116,7 +116,8 @@ export class UserController {
     }
     @Get('getAdmins/:role')       // http://localhost:3000/user/getAdmins/admin
     getAdmins(@Param('role') role:string){
-        return this.UserService.showAdmins(role);
+       return this.UserService.showAdmins(role);
+ 
     }
     
 }
