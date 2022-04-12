@@ -5,7 +5,8 @@ import { Enterprise } from 'src/enterprise/enterprise.entity';
 import { UserRoleEnum } from 'src/enums/UserRoleEnum';
 import { TimestampEntity } from 'src/Generaics/timestamp.entities';
 import { Group } from 'src/group/group.entity';
-import { Entity, Column, PrimaryGeneratedColumn, PrimaryColumn, ManyToMany, ManyToOne } from 'typeorm';
+import { Task } from 'src/task/task.entity';
+import { Entity, Column, PrimaryGeneratedColumn, PrimaryColumn, ManyToMany, ManyToOne, OneToMany, JoinTable } from 'typeorm';
 
 @Entity()
 export class User extends TimestampEntity {
@@ -46,7 +47,10 @@ export class User extends TimestampEntity {
   groupId:number
   @ManyToOne(()=>Group,group =>group.id)
   group:Group
-
+  
+  @OneToMany(()=>Task,task=>task.id)
+  @JoinTable()
+  task:Task[]
 }
 
 function Primary() {

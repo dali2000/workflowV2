@@ -30,8 +30,13 @@ export class UserService {
     }
 
     async showAdmins(role: string){
-        return await this.userRepository.find({where: {role}});
-    }
+        const admins = await this.userRepository.find({where: {role}});
+      const length =  await this.userRepository.count({where: {role}});
+      return{
+          admins,
+          length
+      }
+    } 
     async create(data:userDTO){
         const user = await this.userRepository.create(data);
         await this.userRepository.save(user);
