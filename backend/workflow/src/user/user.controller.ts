@@ -55,7 +55,7 @@ export class UserController {
         return this.UserService.showOne(id);
     }
 
-    @Get('getByGroup/:groupId')
+    @Get('getByGroup/:groupId') // http://localhost:3000/user/getByGroup/1
     getByGroup(@Param('groupId') groupId:number){
         return this.UserService.showByGroup(groupId)
     }
