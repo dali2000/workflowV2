@@ -1,0 +1,86 @@
+<app-user-nav></app-user-nav>
+<br><br>
+<div class="container">
+  <h5>My Tasks</h5>
+
+  <div class="row" cdkDropListGroup>
+    <div class="col-md list"
+      cdkDropList
+      [cdkDropListData]="ToDo"
+
+      (cdkDropListDropped)="drop($event)">
+
+      <div class="row">
+        <div class="col-md-2"><i class='bx bx-list-ul' style="font-size:
+            28px;color: rgb(99, 14, 152);"></i></div>
+        <div class="col-md-1">ToDo</div>
+
+      </div>
+      <div class="row task" *ngFor="let To of ToDo" style="margin: 10px;"
+        cdkDrag>
+        {{To.dueDate | date}} <br>
+        {{To.Name}}
+      </div>
+    </div>
+    <div class="col-md list" cdkDropList
+      [cdkDropListData]="InProgress"
+
+      (cdkDropListDropped)="drop($event)">
+
+      <div class="row">
+        <div class="col-md-2">
+          <i class='bx bxs-timer' style="font-size: 28px;color: rgb(222, 152,
+            0);"></i>
+        </div>
+        <div class="col-md-1">
+          InProgress
+        </div>
+
+      </div>
+
+      <div class="row task" *ngFor="let In of InProgress" style="margin: 10px;"
+        cdkDrag>
+        {{In.dueDate | date}} <br>
+        {{In.Name}}
+      </div>
+    </div>
+    <div class="col-md list"
+    cdkDropList
+      [cdkDropListData]="Completed"
+
+      (cdkDropListDropped)="drop($event)">
+      <div class="row">
+        <div class="col-md-2">
+          <i class='bx bx-list-check' style="font-size: 28px;color: rgb(45, 164,
+            15);"></i>
+        </div>
+        <div class="col-md-1">
+          Completed
+        </div>
+      </div>
+      <div class="row task" *ngFor="let C of Completed" style="margin: 10px;" cdkDrag>
+        {{C.dueDate | date}} <br>
+        {{C.Name}}
+      </div>
+    </div>
+    <div class="col-md list"cdkDropList
+    [cdkDropListData]="Reopened"
+
+    (cdkDropListDropped)="drop($event)">
+      <div class="row">
+        <div class="col-md-2">
+          <i class='bx bxs-left-arrow-circle' style="font-size: 28px;color:
+            rgb(144, 0, 0);"></i>
+        </div>
+        <div class="col-md-1">
+          Reopened
+        </div>
+      </div>
+      <div class="row task" *ngFor="let r of Reopened" style="margin: 10px;"cdkDrag >
+        {{r.dueDate | date}} <br>
+        {{r.Name}}
+      </div>
+    </div>
+  </div>
+
+</div>

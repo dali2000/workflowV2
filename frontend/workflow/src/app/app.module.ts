@@ -47,8 +47,10 @@ import { PagestatestiqueadminComponent } from './Dashbordadmin/pagestatestiquead
 import { ListWorkflowComponent } from './workflow/list-workflow/list-workflow.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { GroupuserComponent } from './entreprise/groupuser/groupuser.component';
+import { UserNavComponent } from './user-nav/user-nav.component';
+import { TasksComponent } from './tasks/tasks.component';
 
-
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 const routes: Routes = [
   { path:'', component: PwelcomeComponent },
@@ -58,7 +60,7 @@ const routes: Routes = [
   {path:'LoginEntreprise', component:LoginEntrepriseComponent},
   {path:'HomeEntreprise',component:HomeEntrepriseComponent},
   { path: 'ProfilEnt/:id', component: ProfilEntComponent},
-
+  { path: 'Tasks/:id', component: TasksComponent},
 
 
 
@@ -156,6 +158,8 @@ const routes: Routes = [
     PagestatestiqueadminComponent,
     ListWorkflowComponent,
     GroupuserComponent,
+    UserNavComponent,
+    TasksComponent,
 
 
 
@@ -167,7 +171,7 @@ const routes: Routes = [
     HttpClientModule,
     BrowserAnimationsModule,
     Ng2SearchPipeModule,
-
+    DragDropModule
 
 
 
