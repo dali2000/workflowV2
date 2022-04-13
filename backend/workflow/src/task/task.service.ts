@@ -28,7 +28,7 @@ export class TaskService {
     async create(data:taskDTO){
         const group = await this.TaskRepository.create(data);
         await this.TaskRepository.save(group);
-        return group;
+        return group;   
     }
     async update(id: string, data:Partial<taskDTO>){
         await this.TaskRepository.update(id, data);
@@ -38,6 +38,7 @@ export class TaskService {
         await this.TaskRepository.delete(id);
         return {deleted: true};
     }
+    
 
 
 

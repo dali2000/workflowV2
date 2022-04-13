@@ -55,7 +55,8 @@ export class TaskController {
             res.status(200);
             res.json({  
                 status: '200',
-                message: 'Task Updated'
+                message: 'Task Updated',
+                data:data
             });
         } else {
             res.status(404);
