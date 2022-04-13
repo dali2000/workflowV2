@@ -1,7 +1,6 @@
-
-.box {
+.box{
     color: black;
-    background-color: white;
+    background-color: rgba(197, 194, 194, 0.692);
     border-radius: 8px;
     box-shadow: 0px 0px 7px 3px rgba(0, 0, 0, 0.01);
     -webkit-box-shadow: 0px 0px 7px 3px rgba(0, 0, 0, 0.074);
@@ -10,11 +9,6 @@
     /* padding: 30px; */
     width: auto;
     height: 110%;
-}
-
-.col    
-{
-    width: auto;
 }
 
 .img-group img{
@@ -26,18 +20,6 @@
     margin-top:-5%
 }
 
-.b1{
-    border: none;
-    background-color: #ffffff;
+.row{
+    margin-top: 5%;
 }
-
-input {
-    border-radius: 5px;
-    border: none;
-    background-color: #f2f2f2;
-    padding: 10px;
-    width: 100%;
-    outline: none;
-    margin-top: 18px;
-
-  }

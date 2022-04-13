@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import jwtDecode from 'jwt-decode';
 
 @Component({
@@ -17,16 +17,22 @@ export class GroupuserComponent implements OnInit {
   response: any;
   check = true
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router,private route: ActivatedRoute) { }
 
-
+id: any
   ngOnInit(): void {
+    
     this.token = localStorage.getItem('token');
     this.data = jwtDecode(this.token);
     this.entreprise = this.data.user;
     console.log(this.entreprise.id);
     this.getGroup();
+    
+    this.route.paramMap.subscribe(params => {
+      const id = params.get("id");
+      this.id = id
 
+    });
   }
 
 
@@ -42,15 +48,18 @@ export class GroupuserComponent implements OnInit {
     this.http.get('http://localhost:3000/group/getGroups/' + this.entreprise.id).subscribe(res => {
       console.log(res);
       this.group = res
+    });
+  }
 
+  getGroupId() {
 
-
+    this.http.get('http://localhost:3000/group/getGroups/'+this.id).subscribe(res => {
+      console.log(res);
+      this.group = res
     });
   }
 
   addGroup() {
-
-
     this.groups.enterpriseId = this.entreprise.id;
     this.http.post('http://localhost:3000/group/addGroup', this.groups).subscribe(res => {
       console.log(res)
