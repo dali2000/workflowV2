@@ -47,6 +47,8 @@ import { PagestatestiqueadminComponent } from './Dashbordadmin/pagestatestiquead
 import { ListWorkflowComponent } from './workflow/list-workflow/list-workflow.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { GroupuserComponent } from './entreprise/groupuser/groupuser.component';
+import { GroupComponent } from './entreprise/group/group.component';
+import { ListusergroupComponent } from './entreprise/listusergroup/listusergroup.component';
 import { UserNavComponent } from './user-nav/user-nav.component';
 import { TasksComponent } from './tasks/tasks.component';
 
@@ -97,7 +99,10 @@ const routes: Routes = [
 
 //dashbord entreprise
 { path: 'homeentreprise', component: HomeEntrepriseComponent,children:[
-  { path: 'group', component: GroupuserComponent },
+  { path: 'groupuser', component: GroupuserComponent },
+  { path: 'group/:id', component: GroupComponent},
+  { path: 'ListusergroupComponent', component: ListusergroupComponent },
+
 
 ]},
 
@@ -149,15 +154,14 @@ const routes: Routes = [
     HomeEntrepriseComponent,
     NarEntrepriseComponent,
     ProfilEntComponent,
-
-
-
     HomeadminComponent,
     NavBarAdminComponent,
     WorkflowComponent,
     PagestatestiqueadminComponent,
     ListWorkflowComponent,
     GroupuserComponent,
+    GroupComponent,
+    ListusergroupComponent,
     UserNavComponent,
     TasksComponent,
 

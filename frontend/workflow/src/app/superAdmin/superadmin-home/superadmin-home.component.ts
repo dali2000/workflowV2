@@ -25,5 +25,8 @@ export class SuperadminHomeComponent implements OnInit {
     this.user = this.data.user;
     console.log(this.user);
   }
-
+  logout(){
+    localStorage.removeItem('token');
+    this.router.navigate(['/Login'])
+  }
 }
