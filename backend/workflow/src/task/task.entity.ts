@@ -29,7 +29,7 @@ export class Task extends TimestampEntity {
     userId: number;
     @Column({ default: false})
     valid:boolean;
-    @ManyToOne(() => User)
+    @ManyToOne(() => User )
     @JoinTable()
     user: User[];
 

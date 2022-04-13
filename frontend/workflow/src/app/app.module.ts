@@ -49,8 +49,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { GroupuserComponent } from './entreprise/groupuser/groupuser.component';
 import { GroupComponent } from './entreprise/group/group.component';
 import { ListusergroupComponent } from './entreprise/listusergroup/listusergroup.component';
+import { UserNavComponent } from './user-nav/user-nav.component';
+import { TasksComponent } from './tasks/tasks.component';
 
-
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 const routes: Routes = [
   { path:'', component: PwelcomeComponent },
@@ -60,7 +62,7 @@ const routes: Routes = [
   {path:'LoginEntreprise', component:LoginEntrepriseComponent},
   {path:'HomeEntreprise',component:HomeEntrepriseComponent},
   { path: 'ProfilEnt/:id', component: ProfilEntComponent},
-
+  { path: 'Tasks/:id', component: TasksComponent},
 
 
 
@@ -152,9 +154,6 @@ const routes: Routes = [
     HomeEntrepriseComponent,
     NarEntrepriseComponent,
     ProfilEntComponent,
-
-
-
     HomeadminComponent,
     NavBarAdminComponent,
     WorkflowComponent,
@@ -163,6 +162,8 @@ const routes: Routes = [
     GroupuserComponent,
     GroupComponent,
     ListusergroupComponent,
+    UserNavComponent,
+    TasksComponent,
 
 
 
@@ -174,7 +175,7 @@ const routes: Routes = [
     HttpClientModule,
     BrowserAnimationsModule,
     Ng2SearchPipeModule,
-
+    DragDropModule
 
 
 
