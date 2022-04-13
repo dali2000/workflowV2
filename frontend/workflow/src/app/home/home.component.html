@@ -106,7 +106,7 @@
                     <th scope="row">{{task.id}}</th>
                     <td>{{task.Name}}</td>
                     <!-- <td>Otto</td> -->
-                    <td>{{task.createdAt}}</td>
+                    <td>{{task.createdAt | date}}</td>
                     <td>{{task.dueDate | date }}</td>
                 </tr>
             </tbody>
