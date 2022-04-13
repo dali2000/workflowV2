@@ -1,9 +1,10 @@
 .work{
-    box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.055);
-    -webkit-box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.13);
-    -moz-box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.158);
+    box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.025);
+    -webkit-box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.062);
+    -moz-box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.066);
     padding:10px;
-    border-radius: 5px
+    border-radius: 5px;
+    background-color: white;
 }
 
 .titre{
@@ -14,7 +15,7 @@
     display: block;
     font-weight: bold;
 
-    
+
 }
 .box-table{
     box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.123);
