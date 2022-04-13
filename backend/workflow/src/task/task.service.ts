@@ -38,6 +38,10 @@ export class TaskService {
         await this.TaskRepository.delete(id);
         return {deleted: true};
     }
+
+    async showByEnterprise(IdEnterprise: string){
+        return await this.TaskRepository.find({where: {IdEnterprise}});
+    }
     
 
 
