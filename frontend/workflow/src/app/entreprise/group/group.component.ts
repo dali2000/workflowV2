@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import jwtDecode from 'jwt-decode';
 
 @Component({
   selector: 'app-group',
@@ -12,7 +13,18 @@ export class GroupComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router,private route: ActivatedRoute) { }
   id: any
   group: any
+  token: any
+  data: any
+  entreprise: any
   ngOnInit(): void {
+
+    this.token = localStorage.getItem('token');
+    this.data = jwtDecode(this.token);
+    this.entreprise = this.data.user;
+    console.log(this.entreprise);
+
+
+
     this.route.paramMap.subscribe(params => {
       const id = params.get("id");
       this.id = id
@@ -20,7 +32,7 @@ export class GroupComponent implements OnInit {
     });
     this.getGroup();
     this.getUserGroup();
-    this.task.IdEnterprise=this.id
+    this.task.IdEnterprise=this.entreprise.id
     this.task.userId=this.Users.id
    
     
