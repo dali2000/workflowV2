@@ -53,6 +53,8 @@ import { UserNavComponent } from './user-nav/user-nav.component';
 import { TasksComponent } from './tasks/tasks.component';
 
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { EntrepriseTasksComponent } from './entreprise/entreprise-tasks/entreprise-tasks.component';
+import { ItemsComponent } from './entreprise/items/items.component';
 
 const routes: Routes = [
   { path:'', component: PwelcomeComponent },
@@ -104,8 +106,11 @@ const routes: Routes = [
   { path: 'ListusergroupComponent', component: ListusergroupComponent },
 
 
-]},
 
+]},
+{path:'items',component:ItemsComponent,children:[
+  {path:'listTasks/:id',component:EntrepriseTasksComponent}
+]},
 //dashbord user
 // { path: 'homeuser', component: UserProfilComponent,children:[
 //   { path: 'profil', component: ProfilComponent },
@@ -164,6 +169,8 @@ const routes: Routes = [
     ListusergroupComponent,
     UserNavComponent,
     TasksComponent,
+    EntrepriseTasksComponent,
+    ItemsComponent,
 
 
 
