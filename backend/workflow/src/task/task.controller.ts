@@ -40,10 +40,17 @@ export class TaskController {
     // }
 
     @Get('getTasks/:id')       // http://localhost:3000/task/getTasks/1
-
     getTasks(@Param('id') id: number) {
         return this.TaskService.showByIdUser(id);
     }
+
+    @Get('getTasksEnterprise/:IdEnterprise')       // http://localhost:3000/task/getTasksEnterprise/1
+    getTasksEnterprise(@Param('IdEnterprise') IdEnterprise: string) {
+        return this.TaskService.showByEnterprise(IdEnterprise);
+    }
+
+
+
     @Get('getTask/:id')       // http://localhost:3000/task/getTask/1
     getTask(@Param('id') id: string) {
         return this.TaskService.showOne(id);

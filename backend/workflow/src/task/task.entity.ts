@@ -27,6 +27,10 @@ export class Task extends TimestampEntity {
     statut: string;
     @Column()
     userId: number;
+
+    @Column()
+    IdEnterprise: number;
+
     @Column({ default: false})
     valid:boolean;
     @ManyToOne(() => User )
