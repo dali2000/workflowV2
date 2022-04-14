@@ -35,7 +35,7 @@ export class AddEntrepriseComponent implements OnInit {
     this.test4 = false
     this.check = true
     this.testdate = false
-    this.dateSysteme = this.datePipe.transform(this.Mydtae, 'yyyy-dd-MM');
+    this.dateSysteme =this.datePipe.transform(this.Mydtae, 'yyyy-dd-MM');
     this.messagedate = ""
 
 
