@@ -33,7 +33,8 @@ export class EntrepriseTasksComponent implements OnInit {
   }
 
   task ={
-    valid :true
+    valid :true,
+    statut:"Completed"
   }
   task1 ={
     statut:"ReOpened"
