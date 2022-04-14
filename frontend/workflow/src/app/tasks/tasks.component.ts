@@ -80,7 +80,7 @@ export class TasksComponent implements OnInit {
           this.j++
 
         }
-        else if (this.tasks[i].statut == "Completed") {
+        else if (this.tasks[i].statut == "Completed" && this.tasks[i].valid == false) {
           this.Completed[this.c] = this.tasks[i]
           this.c++
 

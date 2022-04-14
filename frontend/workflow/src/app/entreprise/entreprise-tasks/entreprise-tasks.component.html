@@ -1,0 +1,87 @@
+<div class="container">
+  <br>
+  <br>
+  <h6>All workflows items</h6>
+  <br>
+
+  <div class="d-flex flex-row-reverse bd-highlight">
+
+
+
+    &nbsp;
+    <div class="form-group">
+      <select name="term1" id="inputGroupSelect01 " [(ngModel)]="term1.c" class="custom-select" >
+        <option value=""selected >Choose statut</option>
+        <option value="ToDo" >ToDo</option>
+        <option value="InProgress" >InProgress</option>
+        <option value="Completed" >Completed</option>
+        <option value="ReOpened" >ReOpened</option>
+      </select>
+    </div>
+  </div>
+
+
+
+
+
+  <div class="box-table">
+
+
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">label</th>
+          <!-- <th scope="col">workflow name</th> -->
+          <th scope="col">created at</th>
+          <th scope="col">due date</th>
+          <th scope="col">Status</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks | filter:term1.c">
+          <ng-template [ngIf]="task.valid == false">
+            <th scope="row">{{task.id}}</th>
+            <td>{{task.Name}}</td>
+            <!-- <td>Otto</td> -->
+            <td>{{task.createdAt | date}}</td>
+            <td>{{task.dueDate | date }}</td>
+            <td>
+              <span style="font-size: smaller;">{{task.statut}}</span>
+              <div class="progress" style="height: 10px;">
+
+                <div class="progress-bar" role="progressbar" style="width: 60%;
+                  background-color: #DCA900"
+                  aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
+                  *ngIf="task.statut == 'InProgress'">
+                </div>
+                <div class="progress-bar" role="progressbar" style="width: 100%;
+                  background-color: #0bb508"
+                  aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
+                  *ngIf="task.statut == 'Completed'">
+                </div>
+                <div class="progress-bar" role="progressbar" style="width: 10%;
+                  background-color: #9b0d41"
+                  aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
+                  *ngIf="task.statut == 'ToDo'">
+                </div>
+                <div class="progress-bar" role="progressbar" style="width: 100%;
+                  background-color: #b5081f"
+                  aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
+                  *ngIf="task.statut == 'ReOpened'">
+                </div>
+              </div>
+            </td>
+            <td>
+              <button class="btn btn-outline-primary" (click)="review(task.id)"><i
+                  class='bx bx-refresh'></i> Review</button> &nbsp;
+              <button class="btn btn-primary" (click)="validate(task.id)"> <i
+                  class='bx bx-check'></i> validate</button>
+            </td>
+          </ng-template>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
