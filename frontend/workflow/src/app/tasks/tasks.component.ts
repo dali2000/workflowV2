@@ -70,12 +70,12 @@ export class TasksComponent implements OnInit {
       this.l = this.tasks.length
       // console.log(this.tasks)
       for (let i = 0; i < this.l; i++) {
-        if (this.tasks[i].statut == "ToDo") {
+        if (this.tasks[i].statut == "ToDo"  && this.tasks[i].valid == false) {
           this.ToDo[this.t] = this.tasks[i]
           this.t++
 
         }
-        else if (this.tasks[i].statut == "InProgress") {
+        else if (this.tasks[i].statut == "InProgress"  && this.tasks[i].valid == false) {
           this.InProgress[this.j] = this.tasks[i]
           this.j++
 
@@ -85,7 +85,7 @@ export class TasksComponent implements OnInit {
           this.c++
 
         }
-        else {
+        else if(this.tasks[i].statut == "ReOpened" && this.tasks[i].valid == false){
           this.Reopened[this.r] = this.tasks[i]
           this.r++
 
