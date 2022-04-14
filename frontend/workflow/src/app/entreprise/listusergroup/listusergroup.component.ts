@@ -11,6 +11,7 @@ export class ListusergroupComponent implements OnInit {
 
   constructor(private http: HttpClient, private router: Router,private route: ActivatedRoute) { }
 id: any
+term: any
 
   ngOnInit(): void {
    

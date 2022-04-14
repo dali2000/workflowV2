@@ -23,3 +23,24 @@
 .row{
     margin-top: 5%;
 }
+
+input {
+    border-radius: 5px;
+    border: none;
+    background-color: #f2f2f2;
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    margin-top: 18px;
+
+  }
+  select
+  {
+      border-radius: 5px;
+    border: none;
+    background-color: #f2f2f2;
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    margin-top: 18px;
+}
