@@ -1,6 +1,6 @@
-<app-nar-entreprise ></app-nar-entreprise>
+<app-nar-entreprise></app-nar-entreprise>
 
-<div class="container content" >
+<div class="container content">
     <div class="list">
         <div class="cover">
             <img src="../assets/img/coveruptech.jpg" class="img-couvertur" alt="">
@@ -8,90 +8,168 @@
         <div class="d-flex justify-content-start">
             <img src="../assets/img/uptech.jpg" class="img-profil">
         </div>
-
-
-        <br><br>
-        <div class="row">
-            <div class="col-8 box">
-
-                <div class="row row-cols-1 ">
-                    <div class="col">Name: {{entreprise.Name}}</div>
-                    <div class="col">Email: {{entreprise.Email}}</div>
-
-
-                </div>
+    </div>
+    <div class="d-flex flex-row-reverse bd-highlight">
+        <div class="p-2 bd-highlight">
+            <div class="col">
+                <button type="button" class="btn btn-primary" (click)="update()" [disabled]="!h"> Update</button>
             </div>
-            <div class="col-3 box">
-                <div class="row">
-                    <div class="col">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                                Access 1
-                            </label>
-
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                                Access 2
-                            </label>
-
-                        </div>
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                                Access 3
-                            </label>
-
-                        </div>
-
-                    </div>
-                    <div class="col">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                                Access 4
-                            </label>
-
-                        </div>
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                                Access 5
-                            </label>
-
-                        </div>
-
-                    </div>
-                    <div class="col">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                                Access 6
-                            </label>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-
-
         </div>
+    </div>
+        <br><br>
+    <div class="row">
+        <div class="col-md-7 box">
+                <div class="row">
+                    <div class="col">
+                         <input type="text" class="form-control" placeholder="Name" 
+                         [(ngModel)]="entreprise.Name" name="Name" [disabled]="!edit1">
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn1 btn-edit" (click)="Edit1()">
+                            <i class='bx bx-edit-alt'></i>
+                        </button>
+                    </div>
+                </div>       
+        <div class="row">
+            <div class="col">
+                
+                    <input type="email" class="form-control" placeholder="Email"
+                       [(ngModel)]="entreprise.Email" name="Email" [disabled]="!edit2">
+               </div>
+               <div class="col">
+                <button type="button" class="btn1 btn-edit" (click)="Edit2()">
+                    <i class='bx bx-edit-alt'></i>
+                </button>
+            </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        
+                            <input type="text" class="form-control" placeholder="location"
+                               [(ngModel)]="entreprise.location" name="location" [disabled]="!edit3">
+                       </div>
+                       <div class="col">
+                        <button type="button" class="btn1 btn-edit" (click)="Edit3()">
+                            <i class='bx bx-edit-alt'></i>
+                        </button>
+                    </div>
+                        </div>
+                <div class="row">
+                    <div class="col">
+                        
+                            <input type="text" class="form-control" placeholder="Date Fin"
+                               [(ngModel)]="entreprise.dateFin" name="firstName" disabled>
+                       </div>
+                       <div class="col">
+                       
+                    </div>
+                </div>
+      
+        
+        <!-- <div class="col-3 box">
+            <div class="row">
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Access 1
+                        </label>
+
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Access 2
+                        </label>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Access 3
+                        </label>
+
+                    </div>
+
+                </div>
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Access 4
+                        </label>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Access 5
+                        </label>
+
+                    </div>
+
+                </div>
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Access 6
+                        </label>
+
+                    </div>
+
+                </div>
+            </div>
+        </div> -->
+
+
 
     </div>
+    <div class="col box">
+        <div class="row">
+            <div class="col">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Access 1
+                    </label>
+
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Access 2
+                    </label>
+
+                </div>
+
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Access 3
+                    </label>
+
+                </div>
+    </div>
+
+</div>
+
 </div>

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Body, Controller, Delete, Get, Param, Post, Put, Res } from '@nestjs/common';
 import { Response } from 'express';
 import { taskDTO } from './task.dto';
