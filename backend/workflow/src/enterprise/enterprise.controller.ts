@@ -10,7 +10,7 @@ export class EnterpriseController {
     constructor(private EnterpriseService: EnterpriseService, private jwtService: JwtService) {
 
     }
-    @Get('Enterprise')  // http://localhost:3000/Enterprise
+    @Get('Enterprise')  // http://localhost:3000/enterprise/Enterprise
     getEnterprises() {
         return this.EnterpriseService.showAll();
     }
@@ -18,7 +18,7 @@ export class EnterpriseController {
     // addUser(@Body() data:enterpriseDTO){
     //     return this.EnterpriseService.create(data);
     // }
-    @Post('addEnterprise')         // http://localhost:3000/user
+    @Post('addEnterprise')         // http://localhost:3000/addEnterprise
     async addEnterprise(@Body() data: enterpriseDTO, @Res() res: Response) {
 
         const users = await this.EnterpriseService.showOneByEmail(data.Email);
@@ -54,10 +54,24 @@ export class EnterpriseController {
     getUserByEmail(@Body() data: enterpriseDTO) {
         return this.EnterpriseService.showOneByEmail(data.Email);
     }
-    @Put('updateUser/:id')      // http://localhost:3000/user/updateUser/1
+   
+    
+    @Put('updateEnterprise/:id')      // http://localhost:3000/enterprise/updateEnterprise/1
     updateUser(@Param('id') id: string, @Body() data: Partial<enterpriseDTO>) {
         return this.EnterpriseService.update(id, data);
     }
+
+
+    @Put('updateEnterpris/:id')      // http://localhost:3000/enterprise/updateEnterprise/1
+    async  updateUsere(@Param('id') id: string, @Body() data: Partial<enterpriseDTO>,@Res ({passthrough: true}) res: Response) {
+        const enterprise = await this.EnterpriseService.update(id, data);;
+        const jwt = await this.jwtService.sign({enterprise: enterprise});
+
+        return {
+            jwt
+        };
+    }
+    
     @Delete('deleteEnterprise/:id')    // http://localhost:3000/user/deleteUser/1
     deleteEnterprise(@Param('id') id: string, @Res() res: Response) {
         {
