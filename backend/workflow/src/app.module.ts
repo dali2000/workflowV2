@@ -19,10 +19,13 @@ import { GroupModule } from './group/group.module';
 import { Group } from './group/group.entity';
 import { TaskService } from './task/task.service';
 import { TaskModule } from './task/task.module';
-
+import { NotifController } from './notification/notification.controller';
+import { NotificationService } from './notification/notification.service';
+import { NotificationModule } from './notification/notification.module';
+import { Notif } from './notification/notification.entity';
 
 @Module({
-  imports: [UserModule,EnterpriseModule,WorkflowModule,GroupModule,TaskModule,
+  imports: [UserModule,EnterpriseModule,WorkflowModule,GroupModule,TaskModule,NotificationModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
@@ -30,7 +33,7 @@ import { TaskModule } from './task/task.module';
       username: 'root',
       password: '',
       database: 'workflow',
-      entities:[User,Enterprise,Workflow,Group,Task],
+      entities:[User,Enterprise,Workflow,Group,Task,Notif],
       synchronize: true,
       
       logging: false
@@ -43,6 +46,7 @@ import { TaskModule } from './task/task.module';
     WorkflowModule,
     GroupModule,
     TaskModule,
+    NotificationModule,
    
   ],
   controllers: [AppController],

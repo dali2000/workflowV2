@@ -10,12 +10,14 @@
 
     &nbsp;
     <div class="form-group">
-      <select name="term1" id="inputGroupSelect01 " [(ngModel)]="term1.c" class="custom-select" >
-        <option value=""selected >Choose statut</option>
-        <option value="ToDo" >ToDo</option>
-        <option value="InProgress" >InProgress</option>
-        <option value="Completed" >Completed</option>
-        <option value="ReOpened" >ReOpened</option>
+      <select name="term1" id="inputGroupSelect01"[(ngModel)]="term1.c"
+        class="custom-select">
+        <option value="" selected disabled>Choose statut</option>
+        <option value="" >All</option>
+        <option value="ToDo">ToDo</option>
+        <option value="InProgress">InProgress</option>
+        <option value="Completed">Completed</option>
+        <option value="ReOpened">ReOpened</option>
       </select>
     </div>
   </div>
@@ -74,10 +76,12 @@
               </div>
             </td>
             <td>
+              <button class="btn btn-primary" (click)="validate(task.id)"> <i
+                class='bx bx-check'></i> validate</button>
+                &nbsp;
               <button class="btn btn-outline-primary" (click)="review(task.id)"><i
                   class='bx bx-refresh'></i> Review</button> &nbsp;
-              <button class="btn btn-primary" (click)="validate(task.id)"> <i
-                  class='bx bx-check'></i> validate</button>
+
             </td>
           </ng-template>
         </tr>
