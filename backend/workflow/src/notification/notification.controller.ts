@@ -2,7 +2,7 @@ import { BadRequestException, Body, Controller, Delete, Get, Param, Post, Put, R
 import { notificationDTO } from './notification.dto';
 import { NotificationService } from './notification.service';
 import { Response } from 'express';
-@Controller('notification')
+@Controller('Notification')
 export class NotifController {
     constructor(private NotifService: NotificationService) {}
     @Get('getNotif')  // http://localhost:3000/notification/getNotif
@@ -35,11 +35,20 @@ export class NotifController {
     //     return res;
     // }
 
-    @Get('getNotifs/:userId')       // http://localhost:3000/notification/getNotifs/1
-    getNotifs(@Param('userId') userId: string) {
-         this.NotifService.showByUserId(userId);
+    @Get('getNotifs')       // http://localhost:3000/notification/getNotifs/1
+    getNotifs() {
+         this.NotifService.showByUserId();
 
     }
+
+
+    @Get('getById/:id')       // http://localhost:3000/notification/getNotifs/1
+    getById(@Param('id') id: string) {
+         this.NotifService.showById(id);
+
+    }
+
+
 
     @Delete('deleteNotif/:id')    // http://localhost:3000/notification/deleteNotif/1
     deleteNotif(@Param('id') id: string, @Res() res: Response) {
