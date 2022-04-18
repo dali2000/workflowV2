@@ -42,6 +42,7 @@ export class TasksComponent implements OnInit {
   r = 0;
 
   l = 0
+  len = 0
   drop(event: CdkDragDrop<string[]>, id: number) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
@@ -68,34 +69,35 @@ export class TasksComponent implements OnInit {
     this.http.get("http://localhost:3000/task/getTasks/" + this.user.id).subscribe(res => {
       this.tasks = res
       this.l = this.tasks.length
+
       // console.log(this.tasks)
       for (let i = 0; i < this.l; i++) {
         if (this.tasks[i].statut == "ToDo"  && this.tasks[i].valid == false) {
           this.ToDo[this.t] = this.tasks[i]
           this.t++
-
+          this.len++
         }
         else if (this.tasks[i].statut == "InProgress"  && this.tasks[i].valid == false) {
           this.InProgress[this.j] = this.tasks[i]
           this.j++
-
+          this.len++
         }
         else if (this.tasks[i].statut == "Completed" && this.tasks[i].valid == false) {
           this.Completed[this.c] = this.tasks[i]
           this.c++
-
+          this.len++
         }
         else if(this.tasks[i].statut == "ReOpened" && this.tasks[i].valid == false){
           this.Reopened[this.r] = this.tasks[i]
           this.r++
-
+          this.len++
         }
 
 
       }
     })
 
-
+    console.log(this.len)
   }
 
   get(id:number){
