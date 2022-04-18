@@ -56,7 +56,7 @@ export class EnterpriseController {
     }
    
     
-    @Put('updateEnterprise/:id')      // http://localhost:3000/enterprise/updateEnterprise/1
+    @Put('updateEnterprise/:id')      // http://localhost:3000/Enterprise/updateEnterprise/1
     updateUser(@Param('id') id: string, @Body() data: Partial<enterpriseDTO>) {
         return this.EnterpriseService.update(id, data);
     }
@@ -70,6 +70,7 @@ export class EnterpriseController {
         return {
             jwt
         };
+      
     }
     
     @Delete('deleteEnterprise/:id')    // http://localhost:3000/user/deleteUser/1
