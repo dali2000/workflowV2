@@ -26,7 +26,7 @@ export class ProfilEntComponent implements OnInit {
     this.token = localStorage.getItem('token');
     this.data = jwtDecode(this.token);
     this.user = this.data.user;
-    console.log(this.user);
+
 
 
     this.route.paramMap.subscribe(params => {
@@ -34,14 +34,14 @@ export class ProfilEntComponent implements OnInit {
       this.id = id
 
     });
-   
+
     this.getProfile()
- 
+
   }
   getProfile() {
     this.http.get('http://localhost:3000/Enterprise/getEnterprise/' + this.id).subscribe(res => {
       this.entreprise = res
-      console.log(res);
+
     });
   }
 
@@ -78,9 +78,9 @@ export class ProfilEntComponent implements OnInit {
     }
   }
 
- 
+
   update(){
-    this.http.put('http://localhost:3000/enterprise/updateEnterpris/'+this.id,this.entreprise).subscribe(res => {
+    this.http.put('http://localhost:3000/Enterprise/updateEnterpris/'+this.id,this.entreprise).subscribe(res => {
       console.log(res);
       this.router.navigate(['ProfilEnt/'+this.id])
       this.data = res
@@ -90,11 +90,11 @@ export class ProfilEntComponent implements OnInit {
       headers.append('Authorization', `jwt ${this.token}`);
       localStorage.setItem('token',this.token);
       this.token = localStorage.getItem('token');
-      this.ngOnInit()
+
     });
     //console.log(this.entreprise)
-   
 
+    this.ngOnInit()
   }
 }
 
