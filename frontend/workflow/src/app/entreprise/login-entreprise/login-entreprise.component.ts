@@ -14,7 +14,7 @@ export class LoginEntrepriseComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  user={
+  entreprise={
     Email:'',
     password:'',
 
@@ -22,18 +22,19 @@ export class LoginEntrepriseComponent implements OnInit {
   data:any = {};
   token:any;
   user1 :any;
-
-
   message = ""
   message1 = ""
   message2 = ""
+  message3 = ""
+
 
   test = false
   test1 = false
   test2 = false
+  tset3 = false
 
   login(){
-    this.http.post('http://localhost:3000/enterprise/login',this.user).subscribe(res=>{
+    this.http.post('http://localhost:3000/enterprise/login',this.entreprise).subscribe(res=>{
       this.data = res
       this.token = this.data.jwt
       console.log(res)
@@ -60,9 +61,20 @@ export class LoginEntrepriseComponent implements OnInit {
 
     });
 
+    if ((this.user1.Email != this.entreprise.Email) || (this.user1.password != this.entreprise.password)) {
+      this.tset3 = true
+      this.message3 = "Please check your email and password"
 
+    }
+    else {
+      this.tset3 = false
+      this.message3 = ""
+    }
+
+
+  }
     }
 
 
 
-}
+
