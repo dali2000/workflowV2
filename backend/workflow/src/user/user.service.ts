@@ -11,6 +11,7 @@ export class UserService {
         @InjectRepository(User)
         private userRepository: Repository<User>,
 
+
     ){}
     async showAll(){
         return await this.userRepository.find()
@@ -19,6 +20,9 @@ export class UserService {
      
         return await this.userRepository.findOne({where: {id}});
     }
+
+    
+
     async showOneByEmail(Email: string){
         return await this.userRepository.findOne({where: {Email}});
     }
@@ -28,6 +32,7 @@ export class UserService {
     //     const qb = this.userRepository.createQueryBuilder("user")
     //    return await qb.select("*").groupBy("user.groupId")
     }
+   
 
     async showAdmins(role: string){
         const admins = await this.userRepository.find({where: {role}});

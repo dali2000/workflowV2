@@ -29,7 +29,7 @@ export class Task extends TimestampEntity {
     userId: number;
 
     @Column()
-    IdEnterprise: number;
+    IdEnterprise: number; 
 
     @Column({ default: false})
     valid:boolean;

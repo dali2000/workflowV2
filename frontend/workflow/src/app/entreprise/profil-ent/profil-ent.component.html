@@ -19,6 +19,11 @@
         <br><br>
     <div class="row">
         <div class="col-md-7 box">
+           
+            <div class="d-inline-flex p-2 bd-highlight">
+                <span style="color: red; font-size: 15px;"> NB: Number of days to stay a {{entreprise.nbJour}}</span>
+            </div>
+
                 <div class="row">
                     <div class="col">
                          <input type="text" class="form-control" placeholder="Name" 
@@ -55,18 +60,9 @@
                         </button>
                     </div>
                         </div>
-                <div class="row">
-                    <div class="col">
-                        
-                            <input type="text" class="form-control" placeholder="Date Fin"
-                               [(ngModel)]="entreprise.dateFin" name="firstName" disabled>
-                       </div>
-                       <div class="col">
-                       
-                    </div>
-                </div>
+                
       
-        
+               
         <!-- <div class="col-3 box">
             <div class="row">
                 <div class="col">
