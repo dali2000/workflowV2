@@ -39,6 +39,14 @@ export class GroupService {
         return {deleted: true};
     }
 
-
+    async getEntUser(id:string){
+        
+        const ent = this.GroupRepository.createQueryBuilder('group')
+        .select("group")
+        .where("group.id = :id",{id: id })
+        .getOne();
+        return ent;
+        
+    }
     
 }
