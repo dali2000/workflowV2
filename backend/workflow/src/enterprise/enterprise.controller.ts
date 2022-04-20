@@ -112,6 +112,9 @@ export class EnterpriseController {
 
             // console.log(user.isActive);
              console.log(new Date()==user.dateFin)
+             console.log(user.dateFin.getDate()-new Date().getDate())
+             const nb=user.dateFin.getDate()-new Date().getDate();
+             this.updateUser(user.id.toString(), { nbJour: nb.toString() });
             if (!user || (!await bcrypt.compare(data.password, user.password))) {
                 throw new UnauthorizedException('Invalid creadentials');
             }

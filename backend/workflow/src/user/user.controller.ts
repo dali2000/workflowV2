@@ -102,6 +102,24 @@ export class UserController {
     @Post('login')
     async login(@Body() data:userDTO,@Res ({passthrough: true}) res: Response){
         const user = await this.UserService.showOneByEmail(data.Email);
+        const groupe = await this.UserService.showByGroup(user.groupId);
+
+        console.log(groupe);
+
+        // if(user.isActive==false){
+        //     console.log('User is not active');
+        //     res.status(400);
+        //     res.json({
+        //         status: '400',
+        //         message: 'User Not Active'
+        //     });
+        // }
+       
+       
+        //  else{
+
+            
+
 
         if (!user || (!await bcrypt.compare(data.password, user.password))) {
             throw new UnauthorizedException('Invalid creadentials');
@@ -113,7 +131,8 @@ export class UserController {
                 jwt
             }
         }
-    }
+   // }
+}
     @Get('getAdmins/:role')       // http://localhost:3000/user/getAdmins/admin
     getAdmins(@Param('role') role:string){
        return this.UserService.showAdmins(role);
