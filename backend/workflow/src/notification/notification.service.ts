@@ -10,21 +10,28 @@ export class NotificationService {
         @InjectRepository(Notif)
         private NotifRepository: Repository<Notif>,
 
-    ){}
-    async showAll(){
+    ) { }
+    async showAll() {
         return await this.NotifRepository.find({})
+    } 
+    async showById(id: string) {
+        return await this.NotifRepository.findOne({ where: { id } });
     }
-    async showByUserId(userId:string){
-        return await this.NotifRepository.find({where: {userId}});
+    async showByUserId() {
+        // return await this.NotifRepository.find({ where: { userId } });
+        const notifs = await this.NotifRepository.createQueryBuilder('notif').
+        select('*')
+        .where("notif.userId = 5").getMany();
+        return notifs
     }
-    async create(data:notificationDTO){
+    async create(data: notificationDTO) {
         const user = await this.NotifRepository.create(data);
         await this.NotifRepository.save(user);
         return user;
     }
-    async destroy(id: string){
+    async destroy(id: string) {
         await this.NotifRepository.delete(id);
-        return {deleted: true};
+        return { deleted: true };
     }
 
 

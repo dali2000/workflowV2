@@ -94,4 +94,10 @@ export class GroupController {
         }
     }
 
+    @Get('usEnt/:id')
+    getEntUs(@Param('id') id:string){
+        return this.GroupService.getEntUser(id);
+    }
+    
+
 }

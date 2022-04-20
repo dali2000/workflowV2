@@ -19,6 +19,7 @@ export class UserNavComponent implements OnInit {
     this.data = jwtDecode(this.token);
     this.user = this.data.user;
     console.log(this.user);
+    // console.log(this.token)
   }
 
   logout(){

@@ -4,9 +4,9 @@
   <h5>My Tasks</h5>
   <br><br>
 
-    <img src="../../assets/img/t.png" alt="" srcset="" class="logo1" style="margin: auto;display: block;" *ngIf="tasks.length == 0">
+    <img src="../../assets/img/t.png" alt="" srcset="" class="logo1" style="margin: auto;display: block;" *ngIf="len == 0">
 
-  <div class="row" cdkDropListGroup *ngIf="tasks.length >0">
+  <div class="row" cdkDropListGroup *ngIf="len > 0">
     <div class="col-md list"
       cdkDropList
       [cdkDropListData]="ToDo"
